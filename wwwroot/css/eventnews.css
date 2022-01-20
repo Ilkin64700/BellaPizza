@@ -1,0 +1,19 @@
+.events-and-news-section {
+  padding-bottom: 150px;
+}
+
+.events-and-news-section .container .row .col-lg-6 .section-title {
+  font-size: 24px;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+.events-and-news-section .container .card-deck .col-md-4 .myCard a {
+  display: inline-block;
+  text-decoration: none;
+  height: 100%;
+  -webkit-transition: all 0.2s ease-out 0.2s;
+  transition: all 0.2s ease-out 0.2s;
+}
+/*# sourceMappingURL=eventnews.css.map */

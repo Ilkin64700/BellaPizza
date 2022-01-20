@@ -1,0 +1,73 @@
+﻿@model MenuItem
+@{
+    Layout = null;
+}
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+     style="padding-right: 16px;" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="dataProduct">
+                <form action="" method="post" class="formItem">
+                    <div class="menu-box-with-order p-div row">
+                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 mobile-pizza-container">
+                            <div class="modalImage flex align-items-center r-relative">
+                                <img src="images/@Model.ImagePath" alt="&quot;Bella&quot; ailə menyusu"
+                                     class="img-fluid pizza-modal-image2 image-shadow-modal img-modal "
+                                     id="_49_img">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 mobile-view border-pizza">
+                            <div class="mt-3 px-3">
+                                <div class="textSec">
+                                    <h5 class="text-green pizza-name-here mb-0">@Model.MenuItemName</h5>
+                                    <small class="section-text-grey">
+                                        @Model.MenuItemDescription
+                                    </small>
+                                </div>
+                                <input type="hidden" value="no" name="haveOption">
+                                <input type="hidden" name="product_id" value="49">
+                                <span class="hide countProduct countProductModal">
+                                    <span class="deskAddBasket">Səbətdə sayı:</span>
+                                    <span class="mobAddBasket">
+                                        <i class="fa fa-cart-plus"
+                                           aria-hidden="true"></i>
+                                    </span>
+                                    <span id="product_49">0</span>
+                                </span>
+                                <span class="menu-box-price">
+                                    <span class="food-price">
+                                        <span class="now-price">
+                                            @Model.Price <span class="manat"
+                                                               style="font-weight:bold;">₼</span>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="qty-box ">
+                                    <span class="inputQtyUpdate" data-type="Decrease">
+                                        <i class="fas fa-minus-square" aria-hidden="true"> </i>
+                                    </span>
+                                    <input type="text" readonly="" name="quantity" value="1"
+                                           class="form-control">
+                                    <span class="inputQtyUpdate" data-type="Increase">
+                                        <i class="fas fa-plus-square" aria-hidden="true"></i>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="px-3 py-3 bottomBtn">
+                                <button type="submit"
+                                        class="btn btnBella link-green add-to-basket-btn">
+                                    Səbətə at
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

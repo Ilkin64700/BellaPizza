@@ -1,0 +1,92 @@
+.events-and-news-section {
+    padding-bottom: 150px;
+    .container {
+        .row {
+            .col-lg-6 {
+                .section-title {
+                    font-size: 24px;
+                    color: #222222;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: 800;
+                }
+            }
+        }
+        .card-deck {
+            .col-md-4 {
+                .myCard {
+                    height: 450px;
+                    border-radius: 6px;
+                    border: none;
+                    a {
+                        display: inline-block;
+                        text-decoration: none;
+                        height: 100%;
+                        transition: all 0.2s ease-out 0.2s;
+                        .card-img-top {
+                            border-radius: 0;
+                            border-top-left-radius: 6px !important;
+                            border-top-right-radius: 6px !important;
+                        }
+                        .cardFooter {
+                            padding: 0 20px;
+                            .card-date {
+                                display: flex;
+                                justify-content: space-between;
+                                padding-top: 1.25rem;
+                                .preparation-date {
+                                    p {
+                                        font-family: "Open Sans", sans-serif;
+                                        font-size: 14px;
+                                        color: #9b9b9b;
+                                    }
+                                }
+                            }
+                            .card-body {
+                                padding: 0 0 1.25rem 0;
+                                .card-title {
+                                    color: #222222;
+                                    font-family: "Varela", sans-serif;
+                                    font-weight: 600;
+                                }
+                                .section-text-grey {
+                                    color: #9b9b9b;
+                                    font-size: 100%;
+                                    font-family: Arial, sans-serif;
+                                    line-height: 1.5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .events-and-news-section{
+        .container{
+            .card-deck{
+                .col-md-4{
+                    .myCard{
+                        height: 34rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .events-and-news-section{
+        .container{
+            .card-deck{
+                .col-md-4{
+                    padding-bottom: 1rem;
+                   
+                }
+            }
+        }
+    }
+
+}

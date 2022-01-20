@@ -1,0 +1,17 @@
+.blog-page-header {
+    background-image: url(/images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 2px 4px 0 #95c01f;
+    padding: 140px 0 50px;
+    background-position: 100% -3%;
+    .header-img-overlay-black {
+        position: absolute;
+        background: #000;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+}

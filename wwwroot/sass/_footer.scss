@@ -1,0 +1,53 @@
+.bella-pizza-footer {
+    background-color: #222;
+    .container {
+        .row {
+            .col-lg-4 {
+                h4 {
+                    font-family: "Varela", sans-serif;
+                    color: #fff;
+                    font-size: 14px;
+                }
+                p {
+                    font-family: "Varela", sans-serif;
+                    color: #9b9b9b;
+                }
+                .list-unstyled {
+                    li {
+                        font-family: "Varela", sans-serif;
+                        color: #9b9b9b;
+                        .email {
+                            color: #dbdbdb;
+                        }
+                    }
+                    .mobPhone {
+                        a {
+                            color: #dbdbdb;
+                        }
+                    }
+                }
+            }
+            .col-lg-5 {
+                hr {
+                    border-color: #9b9b9b;
+                }
+            }
+            .col-lg-6 {
+                p {
+                    font-family: "Varela", sans-serif;
+                    color: #9b9b9b;
+                }
+            }
+        }
+    }
+    .footer-copyright {
+        background-color: #1b1b1b;
+        p {
+            font-family: "Varela", sans-serif;
+            color: #9b9b9b;
+        }
+        .text-white{
+            color: #fff!important;
+        }
+    }
+}

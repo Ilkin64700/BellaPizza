@@ -1,0 +1,149 @@
+.about-page-section {
+    padding: 100px 0;
+    background-position: right bottom;
+    background-color: #eee;
+    .container {
+        .row {
+            .col-lg-12 {
+                padding: 0;
+                background: #fff;
+                border-radius: 6px;
+                .about-reservation-box {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .reservation-text {
+                        padding: 2em;
+                        max-width: 35%;
+                        .section-title {
+                            font-size: 23px;
+                            color: #222222;
+                            font-family: "Open Sans";
+                            font-weight: 800;
+                        }
+                        .section-text-grey {
+                            color: #9b9b9b;
+                            font-size: 100%;
+                            font-family: Arial, sans-serif;
+                        }
+                        .link-btn {
+                            background: #95c01f;
+                            color: #fff;
+                        }
+                    }
+                }
+                .about-side {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .about-image-box {
+                        min-width: 35%;
+                        img {
+                            border-bottom-left-radius: 6px;
+                        }
+                    }
+                    .about-box-text {
+                        padding: 2em;
+                        .section-title {
+                            font-size: 23px;
+                            color: #222222;
+                            font-family: "Open Sans";
+                            font-weight: 800;
+                        }
+                        .section-text-grey {
+                            color: #9b9b9b;
+                            font-size: 100%;
+                            font-family: Arial, sans-serif;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------
+
+.mealslider {
+    .container-fluid {
+        .row {
+            .main-manu-box {
+                position: relative;
+                min-height: 300px;
+                background: #adadad;
+                background-repeat: no-repeat;
+                background-size: cover;
+                .image-overlay-black {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: #000000;
+                    opacity: 0.25;
+                }
+                .main-manu-text-box {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    position: relative;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                    transition: all 0.5s;
+                    .main-manu-text {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        h3 {
+                            a {
+                                font-family: "Varela", sans-serif;
+                                color: #fff;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                font-size: 22px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------
+
+.about-page-points {
+    padding: 100px 0;
+    background: url(../images/main-about.png) no-repeat;
+    background-position: left bottom;
+    background-color: #eee;
+    .container {
+        .row {
+            .about-section-targets {
+                i {
+                    opacity: 0.5;
+                    color: #95c01f;
+                }
+                .section-title {
+                    font-size: 23px;
+                    color: #222222;
+                    font-family: "Open Sans";
+                    font-weight: 800;
+                }
+                .section-text-grey {
+                    color: #9b9b9b;
+                    font-size: 100%;
+                    font-family: Arial, sans-serif;
+                }
+            }
+        }
+    }
+}
