@@ -21,6 +21,7 @@ namespace BellaPizza.Controllers
         public IActionResult Index()
         {
             List<Order> cart = SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart");
+            
             if (cart != null)
                 ViewBag.total = cart.Sum(item => item.MenuItem.Price * item.Quantity);
 
@@ -72,40 +73,39 @@ namespace BellaPizza.Controllers
             return -1;
         }
 
-        //public IActionResult ConfirmCart(ShoppingVM shoppingVM)
-        //{
-        //    List<Order> cart = SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart");
-        //    shoppingVM.Orders = cart;
+        [HttpPost]
+        public IActionResult ConfirmCart(ShoppingVM shoppingVM)
+        {
+            List<Order> cart = SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart");
+            shoppingVM.Orders = cart;
 
-        //    bellaContext.Orders.Where(x=)
+            if (shoppingVM.Customer != null)
+            {
+                bellaContext.Customers.Add(shoppingVM.Customer);
+                bellaContext.SaveChanges();
 
-        //    if (shoppingVM.Customer != null)
-        //    {
-        //        customerRepo.Add(shoppingVM.Customer);
-        //        customerRepo.SaveChanges();
+                if (shoppingVM.Orders != null)
+                {
+                    for (int i = 0; i < shoppingVM.Orders.Count; i++)
+                    {
+                        shoppingVM.Orders[i].CustomerId = shoppingVM.Customer.Id;
+                        shoppingVM.Orders[i].MenuItemId = shoppingVM.Orders[i].MenuItem.Id;
+                        shoppingVM.Orders[i].MenuItem = null;
+                    }
+                    bellaContext.Orders.AddRange(shoppingVM.Orders);
+                    int rowAffected = bellaContext.SaveChanges();
+                    SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", null);
 
-        //        if (shoppingVM.Orders != null)
-        //        {
-        //            for (int i = 0; i < shoppingVM.Orders.Count; i++)
-        //            {
-        //                shoppingVM.Orders[i].CustomerId = shoppingVM.Customer.Id;
-        //                shoppingVM.Orders[i].MenuItemId = shoppingVM.Orders[i].MenuItem.Id;
-        //                shoppingVM.Orders[i].MenuItem = null;
-        //            }
-        //            orderRepo.AddRange(shoppingVM.Orders);
-        //            int rowAffected = orderRepo.SaveChanges();
-        //            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", null);
+                    if (rowAffected > 0)
+                        TempData["Success"] = "Sifariş Qeydə alındı";
+                    else
+                        TempData["Error"] = "Sifariş Qeydə alınmadı";
+                }
+                else
+                    TempData["Error"] = "Sifariş üçün heç bir məhsul seçilməyib";
+            }
 
-        //            if (rowAffected > 0)
-        //                TempData["Success"] = "Sifariş Qeydə alındı";
-        //            else
-        //                TempData["Error"] = "Sifariş Qeydə alınmadı";
-        //        }
-        //        else
-        //            TempData["Error"] = "Sifariş üçün heç bir məhsul seçilməyib";
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
     }
 }

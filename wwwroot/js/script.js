@@ -31,6 +31,8 @@ jQueryAjaxPost = form => {
             contentType: false,
             processData: false,
             success: function (res) {
+                $("#productModal").modal('hide')
+                //location.reload();
             },
             error: function (err) {
                 console.log("Ajaxdan error geldi" + err)

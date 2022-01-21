@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse " id="navbarResponsive">
                     <ul class="navbar-nav navbarHeader ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menyu</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Menyu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="events.html">Uşaq ad günləri və master-klasslar</a>
@@ -63,24 +63,11 @@
                         <li class="nav-item hidden-sm custom-dropdown">
                             <a class="nav-link order-button" asp-controller="ShoppingCart" asp-action="Index">
                                 <span>
-                                    <span id="product-length">
-                                        0
-                                    </span>
-                                    məhsul
-                                </span><br>
+                                    @await Component.InvokeAsync("CartCount");
+                                </span>
+                                <br>
                                 <i class="fas fa-2x fa-shopping-basket" aria-hidden="true"></i>
                             </a>
-                            <div class="dropdown-content" id="basketItems">
-                                <div class="list-order">
-                                    <p>Səbətiniz boşdur</p>
-                                </div>
-                                <ul class="footer-dropdown">
-                                    <li><a asp-controller="ShoppingCart" asp-action="Index" class="btn btn-danger">Səbətə keç</a></li>
-                                    <li class="price">
-                                        0.00 <span class="manat">₼</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -324,7 +311,7 @@
             <a href="#" class="text-white"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         </div>
     </footer>
-   
+
 
     <script src="https://kit.fontawesome.com/21d05e9d38.js" crossorigin="anonymous"></script>
     <script src="~/js/jquery-3.6.0.js"></script>

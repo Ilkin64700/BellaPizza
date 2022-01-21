@@ -28,7 +28,7 @@
                                     {
                                         <tr class="vincent_cart_item" id="940">
                                             <td style="vertical-align: middle;">
-                                                <a class="btn vincent_product-remove" href="sebetden-sil/mehsul-940"
+                                                <a class="btn vincent_product-remove" asp-route-id="@order.MenuItem.Id" asp-action="Remove" asp-controller="ShoppingCart"
                                                    data-toggle="tooltip" data-placement="bottom" title=""
                                                    data-original-title="Bu məhsulu sil">
                                                     <i class="fas fa-times" aria-hidden="true"></i>
@@ -71,7 +71,7 @@
 
                     <div class="vincent_cart_totals pull-right" style="text-align: right">
                         <div class="totalFoot totalFootPrice WebItemsTotalPrice">
-                            <span><strong>Ümumi qiymət</strong>: <span id="totalPrice">239.60</span> </span>
+                            <span><strong>Ümumi qiymət</strong>: <span id="totalPrice">@(ViewBag.total ?? "0.00" )</span> </span>
                             <span class="manat">₼</span>
                         </div>
                         <!--<div class="totalFoot">
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <form method="post" action="" id="checkout_form">
+                <form method="post" asp-action="ConfirmCart" asp-controller="ShoppingCart" id="checkout_form">
                     <div class="accordion checkout_table" id="checkoutAccordion">
                         <div class="card">
                             <div class="card-header" id="headingInfo">
@@ -105,31 +105,18 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-md-6 col-sm-12">
-                                            <label for="Name">Ad</label>
-                                            <input name="Name" type="text" id="Name" class=" form-control"
-                                                   value="">
+                                            <input type="hidden" asp-for="Customer.Id"/>
+                                            <label asp-for="Customer.Name">Ad</label>
+                                            <input asp-for="Customer.Name" type="text" id="Name" class=" form-control" value="">
                                         </div>
                                         <div class="form-group col-md-6 col-sm-12">
-                                            <label for="Phone">Telefon nömrəsi</label>
+                                            <label asp-for="Customer.PhoneNumber">Telefon nömrəsi</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1"
                                                           style="border-top-right-radius: 0;border-bottom-right-radius: 0;height: 38px;">+994</span>
-                                                    <span class="">
-                                                        <select name="prefixOrder" id="prefixOrder"
-                                                                class="form-control"
-                                                                style="padding: 5px;border-radius: 0;">
-                                                            <option value="50">50</option>
-                                                            <option value="51">51</option>
-                                                            <option value="55">55</option>
-                                                            <option value="70">70</option>
-                                                            <option value="77">77</option>
-                                                            <option value="99">99</option>
-                                                            <option value="60">60</option>
-                                                        </select>
-                                                    </span>
                                                 </div>
-                                                <input name="Phone" type="text" value="" id="Phone"
+                                                <input asp-for="Customer.PhoneNumber" type="text" value="" id="Phone"
                                                        maxlength="7" class="form-control masked_phone">
 
                                             </div>
@@ -155,7 +142,7 @@
                                     <ul style="display: inline-block;width: 100%;">
                                         <li style="width: 100%;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="Address"
+                                                <input asp-for="Customer.Address" type="text" class="form-control" 
                                                        placeholder="Ünvan">
                                             </div>
                                         </li>
@@ -178,7 +165,7 @@
                                  data-parent="#checkoutAccordion">
                                 <div class="card-body">
                                     <div class="advanced">
-                                        <textarea name="Advanced" class="form-control" rows="5" id="Advanced"
+                                        <textarea asp-for="Customer.Description" class="form-control" rows="5" id="Advanced"
                                                   style="resize: none;height: 100%;"
                                                   placeholder="Qeyd yazın"></textarea>
                                     </div>
