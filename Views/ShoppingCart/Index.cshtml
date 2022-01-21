@@ -1,0 +1,363 @@
+﻿@model ShoppingVM
+
+<section>
+    <div class="container-fluid cartView pdt-80">
+        <div class="row">
+            <div class="col col-12">
+                <div id="checkout_result">
+                </div>
+            </div>
+            <div class="col col-12 col-md-8 checkout-list">
+                <div class="vincent_content card">
+                    <div class="table-responsive WebCartPageItems">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Məhsul</th>
+                                    <th><span>Qiymət</span></th>
+                                    <th>Miqdar</th>
+                                    <th><span>Ümumi qiymət</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Orders != null)
+                                {
+                                    foreach (Order order in Model.Orders)
+                                    {
+                                        <tr class="vincent_cart_item" id="940">
+                                            <td style="vertical-align: middle;">
+                                                <a class="btn vincent_product-remove" href="sebetden-sil/mehsul-940"
+                                                   data-toggle="tooltip" data-placement="bottom" title=""
+                                                   data-original-title="Bu məhsulu sil">
+                                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                            <td class="vincent_product-thumbnail">
+                                                <a>
+                                                    <img src="images/@order.MenuItem.ImagePath" alt="" bella"="" ailə="" menyusu"="">
+                                                </a>
+                                            </td>
+                                            <td class="vincent_product-name" data-title="Məhsul">
+                                                <strong>@order.MenuItem.MenuItemName</strong>
+                                            </td>
+                                            <td class="vincent_product-price" data-title="Qiymət">
+                                                <span>@order.MenuItem.Price <span class="manat">₼</span></span>
+                                            </td>
+                                            <td class="vincent_product-quantity" data-title="Miqdar">
+                                                <a href="javascript:__qtyUpdate('Decrease',940)">
+                                                    <i class="fas fa-minus-square" aria-hidden="true"></i>
+                                                </a>
+                                                <input type="text" value="@order.Quantity" name="quantity"
+                                                       class="vincent_quantity">
+                                                <a href="javascript:__qtyUpdate('Increase',940)">
+                                                    <i class="fas fa-plus-square" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                            <td class="vincent_product-subtotal" data-title="Ümumi qiymət">
+                                                <span class="perTotPrice">@(order.MenuItem.Price * order.Quantity)  </span><span class="manat">₼</span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Mobile side cart -->
+                    <!-- Mobile side cart end -->
+
+                    <div class="vincent_cart_totals pull-right" style="text-align: right">
+                        <div class="totalFoot totalFootPrice WebItemsTotalPrice">
+                            <span><strong>Ümumi qiymət</strong>: <span id="totalPrice">239.60</span> </span>
+                            <span class="manat">₼</span>
+                        </div>
+                        <!--<div class="totalFoot">
+                                                    <small>
+                                <span><?/*=$language->get('bonus_info_text')*/?></span>:
+                                <span id="totalBonus"><?/*=number_format($bonusPrice, 2, '.', '')*/?>
+                                </span>
+                            </small>
+                            <span class="manat">₼</span>
+                        </div>-->
+                        <a class="btn btn btn-danger" href="/menyu#pizza">əlavə et</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <form method="post" action="" id="checkout_form">
+                    <div class="accordion checkout_table" id="checkoutAccordion">
+                        <div class="card">
+                            <div class="card-header" id="headingInfo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapseInfo" aria-expanded="true"
+                                            aria-controls="collapseInfo">
+                                        Əlaqə məlumatları
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseInfo" class="collapse show" aria-labelledby="headingOne"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-12">
+                                            <label for="Name">Ad</label>
+                                            <input name="Name" type="text" id="Name" class=" form-control"
+                                                   value="">
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-12">
+                                            <label for="Phone">Telefon nömrəsi</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"
+                                                          style="border-top-right-radius: 0;border-bottom-right-radius: 0;height: 38px;">+994</span>
+                                                    <span class="">
+                                                        <select name="prefixOrder" id="prefixOrder"
+                                                                class="form-control"
+                                                                style="padding: 5px;border-radius: 0;">
+                                                            <option value="50">50</option>
+                                                            <option value="51">51</option>
+                                                            <option value="55">55</option>
+                                                            <option value="70">70</option>
+                                                            <option value="77">77</option>
+                                                            <option value="99">99</option>
+                                                            <option value="60">60</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <input name="Phone" type="text" value="" id="Phone"
+                                                       maxlength="7" class="form-control masked_phone">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                        Çatdırılma ünvanı
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <ul style="display: inline-block;width: 100%;">
+                                        <li style="width: 100%;">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="Address"
+                                                       placeholder="Ünvan">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseFour" aria-expanded="false"
+                                            aria-controls="collapseFour">
+                                        Qeyd
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <div class="advanced">
+                                        <textarea name="Advanced" class="form-control" rows="5" id="Advanced"
+                                                  style="resize: none;height: 100%;"
+                                                  placeholder="Qeyd yazın"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                        Çatdırılma zamanı
+                                    </button>
+                                </h2>
+                                <span class="selectionTitle deliveryTimeType">Ən tez zamanda</span>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <ul id="DeliveryTime_rbl" onchange="javascript:delivery_type_change()">
+                                        <li>
+                                            <input id="DeliveryTime_rbl_0" type="radio" name="deliveryTimeType"
+                                                   value="1" checked="checked">
+                                            <label for="DeliveryTime_rbl_0">Ən tez zamanda</label>
+                                        </li>
+                                        <li>
+                                            <input id="DeliveryTime_rbl_1" type="radio" name="deliveryTimeType"
+                                                   value="2">
+                                            <label for="DeliveryTime_rbl_1">2 saat sonra</label>
+                                        </li>
+                                        <li>
+                                            <input id="DeliveryTime_rbl_2" type="radio" name="deliveryTimeType"
+                                                   value="3">
+                                            <label for="DeliveryTime_rbl_2">Sonra (vaxtı seç)</label>
+                                        </li>
+                                    </ul>
+                                    <div id="DeliveryTime" style="display:none;margin-bottom: 0;">
+                                        <select name="Hours" id="Hours"
+                                                style="font-family:ArialCurive;height:40px;width:60px;">
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+
+                                        </select>
+                                        <select name="Minutes" id="Minutes"
+                                                style="font-family:ArialCurive;height:40px;width:60px;">
+                                            <option value="00">00</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                    </div>
+                                    <div id="app" style="margin-top: 20px;margin-left:5px;">
+                                        <span style="font-family:VAG-World-Bold">
+                                            <b>
+                                                Təmassız
+                                                Çatdırılma
+                                            </b>
+                                        </span>
+                                        <div class="toggle-button-cover">
+                                            <div class="button-cover">
+                                                <div class="button r" id="button-1">
+                                                    <input type="checkbox" class="checkbox"
+                                                           name="delivery_contact" value="1">
+                                                    <div class="knobs"></div>
+                                                    <div class="layer"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne">
+                                        Xidmət növü
+                                    </button>
+                                </h2>
+
+                                <span class="selectionTitle deliveryMethod">Çatdırılma</span>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>
+                                            <input id="deliveryMethod_2" type="radio" name="deliveryMethod"
+                                                   value="1" checked="checked">
+                                            <label for="deliveryMethod_2">Çatdırılma</label>
+                                        </li>
+                                        <li>
+                                            <input id="deliveryMethod_1" type="radio" name="deliveryMethod"
+                                                   value="2">
+                                            <label for="deliveryMethod_1">Şəxsən daşınma</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseFive" aria-expanded="false"
+                                            aria-controls="collapseFive">
+                                        Ödəniş üsulun seçin
+                                    </button>
+                                </h2>
+
+                                <span class="selectionTitle PaymentType">Nağd</span>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                 data-parent="#checkoutAccordion">
+                                <div class="card-body">
+                                    <ul class="paymentSelectType">
+                                        <li class="row">
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <select name="PaymentType" id="PaymentType"
+                                                            onchange="javascript:payment_type_change()"
+                                                            class="form-control">
+                                                        <option value="ONLINE">Kartla (saytdan)</option>
+                                                        <option selected="selected" value="CASH">
+                                                            Kuryer
+                                                            vasitəsilə nağd
+                                                        </option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <select name="CardType" id="CardType" disabled="disabled"
+                                                            class="aspNetDisabled form-control">
+                                                        <option selected="selected" value="v">Visa</option>
+                                                        <option value="m">Master</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-card card" style="padding: 10px;">
+                        <small class="minOrder text-center" style="display: none;">
+                            Sifarişin minimal məbləği:
+                            12.00 <span class="manat">m</span>
+                        </small>
+                        <input type="hidden" name="csrf_token" value="12ca070623f6473b6aaed071cb276866">
+                        <input type="hidden" name="SendPayment_btn" value="1">
+                        <input type="submit" style="display: inline-block;margin-left: 0;" id="SendPayment_btn"
+                               class="btn waves-effect orderbutton" value="Sifariş et">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>

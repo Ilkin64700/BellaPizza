@@ -1,10 +1,12 @@
 using BellaPizza.Models.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +26,23 @@ namespace BellaPizza
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+
+            services.AddDistributedMemoryCache(); //before AddControllersWithViews
+
+            services.AddControllersWithViews()
+                .AddSessionStateTempDataProvider()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization()
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
             services.AddDbContext<BellaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BellaStr")));
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             //services.AddRazorPages();
         }
 
@@ -40,6 +57,8 @@ namespace BellaPizza
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseSession();
+
             app.UseStaticFiles();
 
             app.UseRouting();

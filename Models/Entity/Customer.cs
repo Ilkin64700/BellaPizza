@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BellaPizza.Models.Entity
 {
-    public class Customer:BaseEntity
+    public class Customer: BaseEntity
     {
         [Required]
         [DisplayName("Musteri Adi")]

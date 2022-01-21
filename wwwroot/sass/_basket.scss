@@ -1,0 +1,218 @@
+.cartView {
+    padding-top: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .row {
+        .checkout-list {
+            .card {
+                padding: 30px;
+                border-radius: 6px;
+                border: none;
+                margin-bottom: 1rem;
+                .table-responsive {
+                    .table {
+                        color: #212529;
+                        tbody {
+                            .vincent_cart_item {
+                                td {
+                                    .vincent_product-remove {
+                                        font-weight: 400;
+                                        width: 50%;
+                                        display: block;
+                                        text-align: center;
+                                        margin: 0 auto;
+                                        color: #333;
+                                        border-radius: 50%;
+                                        border: 0;
+                                        .fas {
+                                            color: #333 !important;
+                                            font-size: 20px;
+                                            vertical-align: baseline;
+                                        }
+                                    }
+                                }
+                                .vincent_product-thumbnail {
+                                    height: 90px;
+                                    text-align: center;
+                                    a {
+                                        margin: 0 auto;
+                                        img {
+                                            max-width: 100%;
+                                            max-height: 70px;
+                                            margin: 0 auto;
+                                        }
+                                    }
+                                }
+                                .vincent_product-quantity {
+                                    a {
+                                        .fas {
+                                            font-size: 20px;
+                                            vertical-align: baseline;
+                                            color: #c0322d;
+                                        }
+                                    }
+                                    .vincent_quantity {
+                                        width: 42px;
+                                        height: 42px;
+                                        font-size: 14px;
+                                        line-height: 38px;
+                                        text-align: center;
+                                        border: solid 2px #dce4e8;
+                                        border-radius: 0;
+                                        background: transparent;
+                                        box-sizing: border-box;
+                                        margin: 0 auto 20px auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .vincent_cart_totals {
+                    .totalFootPrice {
+                        font-size: 28px;
+                    }
+                    a {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        .col-md-4 {
+            form {
+                #checkoutAccordion {
+                    width: 100%;
+                    .card {
+                        padding: 0;
+                        margin-bottom: 5px !important;
+                        border-radius: 6px;
+                        overflow: hidden;
+                        &:first-of-type {
+                            border-bottom: 0;
+                        }
+                        .card-header {
+                            padding: 0;
+                            margin-bottom: -1px;
+                            h2 {
+                                font-size: inherit;
+                                display: inline-block;
+                                width: 100%;
+                                button {
+                                    font-family: Arial;
+                                    color: #a4a4a4;
+                                    font-size: 20px !important;
+                                    text-transform: uppercase !important;
+                                    display: inline-block;
+                                    width: 100%;
+                                    text-align: left;
+                                    font-weight: 600;
+                                    &::after {
+                                        color: #333;
+                                        top: 10px;
+                                        right: 5px;
+                                        content: url("https://bellapizza.az/app/templates/main/icons/down-arrow.png?v=1.0.0");
+                                    }
+                                }
+                                button[aria-expanded="true"] {
+                                    &::after {
+                                        content: url("https://bellapizza.az/app/templates/main/icons/up-arrow.png?v=1.0.0");
+                                    }
+                                }
+                            }
+                            .selectionTitle {
+                                float: right;
+                                margin-right: 10px;
+                                margin-top: 8px;
+                                font-size: 18px;
+                                color: #545454;
+                                position: absolute;
+                                right: 5px;
+                            }
+                        }
+                        .card-body {
+                            padding: 1rem;
+                            .row {
+                                .form-group {
+                                    label {
+                                        color: #1d2326;
+                                    }
+                                    input {
+                                    }
+                                    .input-group {
+                                        .input-group-prepend {
+                                            .input-group-text {
+                                                display: flex;
+                                                align-items: center;
+                                                padding: 0.375rem 0.75rem;
+                                                margin-bottom: 0;
+                                                font-size: 1rem;
+                                                font-weight: 400;
+                                                line-height: 1.5;
+                                                color: #495057;
+                                                text-align: center;
+                                                white-space: nowrap;
+                                                background-color: #e9ecef;
+                                                border: 1px solid #ced4da;
+                                                border-radius: 0.25rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            ul {
+                                list-style: none;
+                                padding: 0;
+                                margin-bottom: 0;
+                                li {
+                                    display: inline-block;
+                                    .form-group {
+                                        input {
+                                            display: inline-block;
+                                            padding: 4px 6px;
+                                            margin-bottom: 10px;
+                                            font-size: 14px;
+                                            line-height: 20px;
+                                            color: #555;
+                                            border-radius: 4px;
+                                            background-color: #fff;
+                                            border: 1px solid #ccc;
+                                            transition: border linear 0.2s, box-shadow linear 0.2s;
+                                        }
+                                        label {
+                                        }
+                                    }
+                                }
+                            }
+                            .paymentSelectType {
+                                li {
+                                    width: 100%;
+                                    .col-md-12 {
+                                        select {
+                                            margin-bottom: 10px;
+                                        }
+                                        #CardType {
+                                            background-color: #e3e3e3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .button-card {
+                    border-radius: 6px;
+                    border: none;
+                    margin-bottom: 1rem;
+                    .orderbutton {
+                        border-color: #85b839;
+                        font-size: 16px;
+                        background-color: #fff;
+                        font-weight: bold;
+                        width: 100%;
+                        border: 2px solid #85B839;
+                    }
+                }
+            }
+        }
+    }
+}

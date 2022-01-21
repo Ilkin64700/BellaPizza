@@ -6,20 +6,44 @@
 ////    buttonsStyling: false
 ////})
 
-showInPopup = (url, title) => {
+showInPopup = url => {
 
     $.ajax({
         type: 'GET',
         url: url,
         success: function (res) {
-            $("#form-modal .modal-body").html(res)
-            $("#form-modal .modal-title").html(title)
-            $("#form-modal").modal('show')            
+            $("#productModal .modal-body").html(res)
+            $("#productModal").modal('show')
         }
-/*        ,error: function (res) { swalWithBootstrapButtons.fire('Getire bilmedi', `${err.status} - ${err.statusText}`, 'error') }*/
+        /*        ,error: function (res) { swalWithBootstrapButtons.fire('Getire bilmedi', `${err.status} - ${err.statusText}`, 'error') }*/
     })
 }
 
+
+jQueryAjaxPost = form => {
+    try {
+        console.log("Ajaxa geldik");
+        $.ajax({
+            type: 'POST',
+            url: form.action,
+            data: new FormData(form),
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (res) {
+            },
+            error: function (err) {
+                console.log("Ajaxdan error geldi" + err)
+                //swalWithBootstrapButtons.fire('Xeta bas verdi', `${err.status} - ${err.statusText}`, 'error')
+            }
+        })
+    }
+    catch (ex) {
+        //swalWithBootstrapButtons.fire('Try Catch xetasi', `${ex}`, 'error')
+    }
+    //to prevent default form submit event
+    return false;
+}
 
 
 

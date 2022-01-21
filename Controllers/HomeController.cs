@@ -4,6 +4,7 @@ using BellaPizza.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using BellaPizza.AppCode.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,11 +23,15 @@ namespace BellaPizza.Controllers
 
         public IActionResult Index()
         {
-            List<MenuItemGroup> menuItemGroups = bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToList();
+            //SessionHelper.SetObjectAsJson(HttpContext.Session, "Name", "Subhan");
+            //string alma = SessionHelper.GetObjectFromJson<string>(HttpContext.Session, "Name");
+            List <MenuItemGroup> menuItemGroups = bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToList();
+            
 
             return View(menuItemGroups);
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetDetail(int? id)
         {
             MenuItem menuItem = await bellaContext.MenuItems.FindAsync(id);
@@ -35,6 +40,8 @@ namespace BellaPizza.Controllers
 
             return View(menuItem);
         }
+
+        
 
     }
 }

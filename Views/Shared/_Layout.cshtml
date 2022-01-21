@@ -61,7 +61,7 @@
                             </a>
                         </li>
                         <li class="nav-item hidden-sm custom-dropdown">
-                            <a class="nav-link order-button" href="sebet">
+                            <a class="nav-link order-button" asp-controller="ShoppingCart" asp-action="Index">
                                 <span>
                                     <span id="product-length">
                                         0
@@ -75,7 +75,7 @@
                                     <p>Səbətiniz boşdur</p>
                                 </div>
                                 <ul class="footer-dropdown">
-                                    <li><a href="sebet" class="btn btn-danger">Səbətə keç</a></li>
+                                    <li><a asp-controller="ShoppingCart" asp-action="Index" class="btn btn-danger">Səbətə keç</a></li>
                                     <li class="price">
                                         0.00 <span class="manat">₼</span>
                                     </li>
@@ -324,30 +324,13 @@
             <a href="#" class="text-white"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         </div>
     </footer>
-
-
-    <!-- Modal -->
-    <div class="modal" tabindex="-1" id="form-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
+   
 
     <script src="https://kit.fontawesome.com/21d05e9d38.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
+    <script src="~/js/jquery-3.6.0.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>

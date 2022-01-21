@@ -350,6 +350,7 @@ C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\runtimes\win-x86\n
 C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.csproj.AssemblyReference.cache
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.AssemblyInfoInputs.cache
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.AssemblyInfo.cs
@@ -364,6 +365,7 @@ C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\scopedcss\bundle\B
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.TagHelpers.input.cache
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.TagHelpers.output.cache
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.RazorCoreGenerate.cache
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetDetail.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -380,5 +382,7 @@ C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.csproj.
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.dll
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.pdb
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.genruntimeconfig.cache
-C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.csproj.AssemblyReference.cache
-C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetDetail.cshtml.g.cs
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\ShoppingCart\Index.cshtml.g.cs

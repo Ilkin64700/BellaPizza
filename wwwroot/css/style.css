@@ -990,4 +990,220 @@ body {
   text-decoration: underline;
   color: #222222;
 }
+
+.cartView {
+  padding-top: 80px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.cartView .row .checkout-list .card {
+  padding: 30px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table {
+  color: #212529;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item td .vincent_product-remove {
+  font-weight: 400;
+  width: 50%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  color: #333;
+  border-radius: 50%;
+  border: 0;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item td .vincent_product-remove .fas {
+  color: #333 !important;
+  font-size: 20px;
+  vertical-align: baseline;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item .vincent_product-thumbnail {
+  height: 90px;
+  text-align: center;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item .vincent_product-thumbnail a {
+  margin: 0 auto;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item .vincent_product-thumbnail a img {
+  max-width: 100%;
+  max-height: 70px;
+  margin: 0 auto;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item .vincent_product-quantity a .fas {
+  font-size: 20px;
+  vertical-align: baseline;
+  color: #c0322d;
+}
+
+.cartView .row .checkout-list .card .table-responsive .table tbody .vincent_cart_item .vincent_product-quantity .vincent_quantity {
+  width: 42px;
+  height: 42px;
+  font-size: 14px;
+  line-height: 38px;
+  text-align: center;
+  border: solid 2px #dce4e8;
+  border-radius: 0;
+  background: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto 20px auto;
+}
+
+.cartView .row .checkout-list .card .vincent_cart_totals .totalFootPrice {
+  font-size: 28px;
+}
+
+.cartView .row .checkout-list .card .vincent_cart_totals a {
+  margin-top: 10px;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion {
+  width: 100%;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card {
+  padding: 0;
+  margin-bottom: 5px !important;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card:first-of-type {
+  border-bottom: 0;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header {
+  padding: 0;
+  margin-bottom: -1px;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header h2 {
+  font-size: inherit;
+  display: inline-block;
+  width: 100%;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header h2 button {
+  font-family: Arial;
+  color: #a4a4a4;
+  font-size: 20px !important;
+  text-transform: uppercase !important;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header h2 button::after {
+  color: #333;
+  top: 10px;
+  right: 5px;
+  content: url("https://bellapizza.az/app/templates/main/icons/down-arrow.png?v=1.0.0");
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header h2 button[aria-expanded="true"]::after {
+  content: url("https://bellapizza.az/app/templates/main/icons/up-arrow.png?v=1.0.0");
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-header .selectionTitle {
+  float: right;
+  margin-right: 10px;
+  margin-top: 8px;
+  font-size: 18px;
+  color: #545454;
+  position: absolute;
+  right: 5px;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body {
+  padding: 1rem;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body .row .form-group label {
+  color: #1d2326;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body .row .form-group .input-group .input-group-prepend .input-group-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body ul li {
+  display: inline-block;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body ul li .form-group input {
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -webkit-transition: border linear 0.2s, -webkit-box-shadow linear 0.2s;
+  transition: border linear 0.2s, -webkit-box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s, -webkit-box-shadow linear 0.2s;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body .paymentSelectType li {
+  width: 100%;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body .paymentSelectType li .col-md-12 select {
+  margin-bottom: 10px;
+}
+
+.cartView .row .col-md-4 form #checkoutAccordion .card .card-body .paymentSelectType li .col-md-12 #CardType {
+  background-color: #e3e3e3;
+}
+
+.cartView .row .col-md-4 form .button-card {
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.cartView .row .col-md-4 form .button-card .orderbutton {
+  border-color: #85b839;
+  font-size: 16px;
+  background-color: #fff;
+  font-weight: bold;
+  width: 100%;
+  border: 2px solid #85B839;
+}
 /*# sourceMappingURL=style.css.map */
