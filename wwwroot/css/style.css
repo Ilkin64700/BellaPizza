@@ -438,17 +438,26 @@ body {
   height: 75px;
 }
 
-.sectionList .modal {
+@media only screen and (min-width: 768px) {
+  .sectionList .container .product-list .col-lg-3 .menu-box-with-order .textSec .countProduct .mobAddBasket {
+    display: none;
+  }
+  .sectionList .container .product-list .hidden-md {
+    display: none;
+  }
+}
+
+.modal {
   width: 100%;
   height: 100%;
 }
 
-.sectionList .modal .modal-dialog {
+.modal .modal-dialog {
   -webkit-transform: none;
           transform: none;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-header .close {
+.modal .modal-dialog .modal-content .modal-header .close {
   font-size: 14px;
   opacity: 1;
   background: #ffff;
@@ -467,7 +476,7 @@ body {
           box-shadow: 0 0 10px #000;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order {
   border: none;
   cursor: pointer;
   background: #fff;
@@ -478,36 +487,36 @@ body {
   transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .modalImage {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .modalImage {
   height: 250px !important;
   position: relative;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .modalImage .img-modal {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .modalImage .img-modal {
   height: 230px !important;
   max-width: 100%;
   margin: 0 auto;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec {
   height: 115px !important;
   display: inline-block;
   width: 100%;
   position: relative;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec .text-green {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec .text-green {
   font-family: "Varela", sans-serif;
   color: #95c01f;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec .section-text-grey {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .textSec .section-text-grey {
   color: #9b9b9b;
   font-size: 100%;
   font-family: Arial, sans-serif;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .countProduct {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .countProduct {
   position: relative;
   margin-top: 8px;
   float: right;
@@ -518,7 +527,7 @@ body {
   display: none;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .menu-box-price {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .menu-box-price {
   width: 30%;
   margin-bottom: 10px;
   position: initial;
@@ -531,19 +540,19 @@ body {
   display: inline-block;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .menu-box-price .food-price .now-price {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .menu-box-price .food-price .now-price {
   background: #ff0205;
   padding: 0.1rem 0.3rem;
   border-radius: 6px;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box {
   width: 30%;
   display: inline-block;
   text-align: center;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box .inputQtyUpdate i {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box .inputQtyUpdate i {
   font-size: 24px;
   display: inline-block;
   vertical-align: sub;
@@ -551,13 +560,13 @@ body {
   border-radius: 40%;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box input {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box input {
   width: 50px;
   display: inline-block;
   height: 32px;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box .form-control {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .mt-3 .qty-box .form-control {
   background-color: #e9ecef;
   opacity: 1;
   font-size: 1.1rem;
@@ -574,12 +583,12 @@ body {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .bottomBtn {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .bottomBtn {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-.sectionList .modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .bottomBtn .btnBella {
+.modal .modal-dialog .modal-content .modal-body .formItem .menu-box-with-order .col-xs-12 .bottomBtn .btnBella {
   background-color: #95c01f;
   color: #fff;
   display: inline-block;
@@ -588,15 +597,6 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-transform: uppercase;
-}
-
-@media only screen and (min-width: 768px) {
-  .sectionList .container .product-list .col-lg-3 .menu-box-with-order .textSec .countProduct .mobAddBasket {
-    display: none;
-  }
-  .sectionList .container .product-list .hidden-md {
-    display: none;
-  }
 }
 
 .events-and-news-section {

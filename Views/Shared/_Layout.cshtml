@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Varela&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="~/css/style.css" />
     <title> appDetail.WebTitle</title>
 </head>
 
@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="images/logo.png" alt="BellaPizza logo" width="200"></a>
+                <a class="navbar-brand" href="/"><img src="~/images/logo.png" alt="BellaPizza logo" width="200"></a>
                 <div class="hidden-sm">
                     <a class="telephoneHead" href="tel:*1717">
                         <i class="fas fa-phone-alt" aria-hidden="true"></i>
@@ -49,17 +49,27 @@
                                 Digər
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="aboutus.html">Haqqımızda</a>
+                                <a class="dropdown-item" asp-controller="About" asp-action="About">Haqqımızda</a>
                                 <a class="dropdown-item" href="blog.html">Bloq</a>
                                 <a class="dropdown-item" href="contactus.html">Bizimlə əlaqə</a>
                             </div>
                         </li>
-                        <li class="nav-item hidden-sm">
-                            <a class="nav-link login-button" href="#" data-toggle="modal" data-target="#loginModal">
-                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-                                <span>Daxil ol</span>
-                            </a>
-                        </li>
+                        <div class="button-container d-flex justify-content-between">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <p style="font-size:25px">@User.Identity.Name</p>
+                                <br />
+                                <a asp-controller="Account" asp-action="Logout" style="font-size: 15px;">
+                                    Çıxış
+                                </a> }
+                            else
+                            {
+                                
+                                <a asp-controller="Account" asp-action="Login" style="font-size: 25px;">
+                                    Giriş
+                                </a>}
+
+                        </div>
                         <li class="nav-item hidden-sm custom-dropdown">
                             <a class="nav-link order-button" asp-controller="ShoppingCart" asp-action="Index">
                                 <span>
@@ -290,7 +300,7 @@
                     <hr class="my-4">
                 </div>
                 <div class="col-lg-2 mx-auto col-sm-2">
-                    <img src="images/logo.png" alt="Logo BellaPizza" class="img-fluid w-100">
+                    <img src="~/images/logo.png" alt="Logo BellaPizza" class="img-fluid w-100">
                 </div>
                 <div class="col-lg-5 mx-auto col-sm-2">
                     <hr class="my-4">
@@ -324,7 +334,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="~/js/script.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 

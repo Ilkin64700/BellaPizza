@@ -35,13 +35,20 @@ using BellaPizza.Models.Entity;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\ASUS\source\repos\BellaPizza\Views\_ViewImports.cshtml"
-using BellaPizza.Models.ViewModels;
+using BellaPizza.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\ASUS\source\repos\BellaPizza\Views\_ViewImports.cshtml"
+using BellaPizza.ViewModels.Account;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2639efffa190b9adc41e75b5f2f373de7926295f", @"/Views/Shared/Components/CartCount/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e79c3e85904050cec450c5fb1fed8d1d5493235d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"00e4937c7abfa188cd191a76f264eb54f3f46446", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_CartCount_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<int>
     {
         #pragma warning disable 1998

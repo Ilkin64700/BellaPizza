@@ -6,7 +6,7 @@
 ////    buttonsStyling: false
 ////})
 
-showInPopup = url => {
+AjaxGet = url => {
 
     $.ajax({
         type: 'GET',
@@ -20,7 +20,7 @@ showInPopup = url => {
 }
 
 
-jQueryAjaxPost = form => {
+AjaxPost = form => {
     try {
         console.log("Ajaxa geldik");
         $.ajax({

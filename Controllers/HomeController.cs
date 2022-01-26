@@ -23,10 +23,7 @@ namespace BellaPizza.Controllers
 
         public IActionResult Index()
         {
-            //SessionHelper.SetObjectAsJson(HttpContext.Session, "Name", "Subhan");
-            //string alma = SessionHelper.GetObjectFromJson<string>(HttpContext.Session, "Name");
-            List <MenuItemGroup> menuItemGroups = bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToList();
-            
+            List <MenuItemGroup> menuItemGroups = bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToList();           
 
             return View(menuItemGroups);
         }

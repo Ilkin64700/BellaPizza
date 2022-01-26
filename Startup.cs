@@ -1,4 +1,5 @@
 using BellaPizza.Models.Context;
+using BellaPizza.Models.Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -31,11 +32,14 @@ namespace BellaPizza
 
             services.AddControllersWithViews()
                 .AddSessionStateTempDataProvider()
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddDbContext<BellaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BellaStr")));
+
+            services.AddIdentity<BellaUser, BellaRole>()
+                .AddEntityFrameworkStores<BellaContext>();
+
 
             services.AddSession(options =>
             {
@@ -55,7 +59,8 @@ namespace BellaPizza
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("Manage/Dashboard/Error");
+                app.UseHsts();
             }
             app.UseSession();
 
@@ -68,8 +73,15 @@ namespace BellaPizza
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                      name: "areas",
+                      pattern: "{area:exists}/{controller=Dashboard}/{action=Dashboard}/{id?}"
+                    );
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
                 //endpoints.MapRazorPages();
             });

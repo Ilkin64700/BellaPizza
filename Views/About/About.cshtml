@@ -1,0 +1,144 @@
+﻿@model AppDetail
+
+
+<section class="blog-page-header">
+    <div class="header-img-overlay-black"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  text-white">
+                <h1>Bella Pizza-ya xoş gəlmisiniz!</h1>
+                <p class="lead">
+                    Bella Pizza - gülərüz personal, münasib qiymətlər, rahat interyer və ən əsası
+                    şəhərin ən ləzzətli pizzası deməkdir! Burada yalnız təzə xəmir və ən keyfiyyətli məhsullar
+                    istifadə olunur!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto about-page-box">
+                <div class="about-reservation-box">
+                    <div class="text-center reservation-text">
+                        <h2 class="section-title">Rezervasiya</h2>
+                        <p class="section-text-grey">
+                            Bella Pizza-nın möhtəşəm təamlarını dadmaq üçün kafemizdə rezervasiyanı elə indi
+                            edin! Bunun üçün
+                            <span>bütün operatorlardan</span><a itemprop="telephone" href="tel:*1717">*1717 </a>
+                            nömrəsinə zəng edə ya da <a itemprop="telephone" href="tel:+994 55 532 17 17">                                
+                                <strong class=""> @Model.PhoneNumber</strong>
+                            </a>
+                            whatsapp nömrəsinə yaza bilərsiniz! Sizi səbirsizliklə gözləyirik!
+                        </p>
+                        <a class="btn link-btn " href="tel:*1717">zəng et</a>
+                    </div>
+                    <div>
+                        <img src="~/images/about_new.jpg" alt="" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="about-side">
+                    <div class="about-image-box">
+                        <img src="~/images/about.jpg" alt="" class="img-fluid w-100">
+                    </div>
+                    <div class="text-center about-box-text">
+                        <h2 class="section-title">Bella Pizza haqqında</h2>
+                        <div class="section-text-grey">
+                            <p>
+                                Bella Pizza - gülərüz personal, münasib qiymətlər, rahat interyer və ən əsası
+                                şəhərin ən ləzzətli pizzası deməkdir! Burada yalnız təzə xəmir və ən keyfiyyətli
+                                məhsullar istifadə olunur. Restoranımızda təqdim olunan bütün təamlar peşəkar
+                                aşpazlar tərəfindən hazırlanır, odur ki pizzamızın dadına baxandan sonra
+                                restoranımız Sizin ən sevimli məkanınıza çevriləcək. Sifarişinizin birbaşa
+                                evinizə və ya ofisinizə çatdırılmasını istəsəniz, *1717 nömrəsi ilə əlaqə
+                                saxlayıb, çatdırılma xidmətimizdən yararlana bilərsiniz! Həmçinin restoranımızda
+                                övladlarınız üçün master-klasslar və uşaq tədbirləri keçirilir! Bella Pizza-ya
+                                baş çəkib, burada ən ləzzətli və keyfiyyətli pizzanın hazırlanmasına əmin
+                                olacaqsınız!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mealslider">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
+                 style="background-image: url(../images/menu-pizza.png)">
+                <div class="image-overlay-black"></div>
+                <div class="text-center main-manu-text-box">
+                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
+                    <div class="main-manu-text">
+                        <h3><a href="pizza.html">Pizza</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
+                 style="background-image: url(../images/menu-pasta.png)">
+                <div class="image-overlay-black"></div>
+                <div class="text-center main-manu-text-box">
+                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
+                    <div class="main-manu-text">
+                        <h3>
+                            <a href="pasta.html">Pasta</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
+                 style="background-image: url(../images/menu-salat.png)">
+                <div class="image-overlay-black"></div>
+                <div class="text-center main-manu-text-box">
+                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
+                    <div class="main-manu-text">
+                        <h3><a href="salatlar.html">Salatlar</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
+                 style="background-image: url(../images/menu-burger.png)">
+                <div class="image-overlay-black"></div>
+                <div class="text-center main-manu-text-box">
+                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
+                    <div class="main-manu-text">
+                        <h3><a href="burgerler.html">Burgerlər</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-page-points">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 mx-auto">
+                <div class="text-center about-section-targets">
+                    <i class="fas fa-utensils fa-3x my-3" aria-hidden="true"></i>
+                    <h2 class="section-title">Rezervasiya</h2>
+                    <p class="section-text-grey">Rezervasiya üçün *1717 bütün operatorlardan nömrəsinə zəng edə ya da @Model.PhoneNumber whatsapp nömrəsinə yaza bilərsiniz.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 mx-auto">
+                <div class="text-center about-section-targets">
+                    <i class="fas fa-pizza-slice fa-3x my-3" aria-hidden="true"></i>
+                    <h2 class="section-title">Dadlı təamlar</h2>
+                    <p class="section-text-grey">Restoranımızda təqdim olunan bütün təamlar peşəkar aşpazlar tərəfindən hazırlanır.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 mx-auto">
+                <div class="text-center about-section-targets">
+                    <i class="fas fa-motorcycle fa-3x my-3" aria-hidden="true"></i>
+                    <h2 class="section-title">Sürətli çatdırılma</h2>
+                    <p class="section-text-grey">Sifarişinizin birbaşa evinizə və ya ofisinizə çatdırılmasını istəsəniz, *1717 nömrəsi ilə əlaqə saxlayın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

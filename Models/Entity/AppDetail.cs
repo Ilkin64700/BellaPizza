@@ -11,7 +11,7 @@ namespace BellaPizza.Models.Entity
     {
 
         [DisplayName("Web Basliq")]
-        [StringLength(250, ErrorMessage = "{0} deyeri {1} simvoldan artiq ola bilmez")] // Web Basliq deyeri 250 simvoldan artiq ola bilmez
+        [StringLength(50, ErrorMessage = "{0} deyeri {1} simvoldan artiq ola bilmez")] // Web Basliq deyeri 250 simvoldan artiq ola bilmez
         public string WebTitle { get; set; }
 
 
@@ -23,9 +23,13 @@ namespace BellaPizza.Models.Entity
         [Phone]
         public string PhoneNumber { get; set; }
 
+        [DisplayName(" 2-ci Elaqe Nomresi")]
+        [Phone]
+        public string HomeNumber { get; set; }
+
         [DisplayName("Poct Unvani")]
         [EmailAddress]
-        public string EmailAdress { get; set; }
+        public string EmailAddress { get; set; }
 
         [DisplayName("Aciqlama")]
         [StringLength(500, ErrorMessage = "{0} deyeri {1} simvoldan artiq ola bilmez")]
@@ -34,5 +38,21 @@ namespace BellaPizza.Models.Entity
         [DisplayName("Is Saati")]
         [StringLength(100, ErrorMessage = "{0} deyeri {1} simvoldan artiq ola bilmez")]
         public string WorkingHours { get; set; }
+
+        [DisplayName("Facebook Ünvanı")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz ")]
+        public string Facebook { get; set; }
+
+        [DisplayName("Twitter Ünvanı")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz ")]
+        public string Twitter { get; set; }
+
+        [DisplayName("Instagram Ünvanı")]
+        [StringLength(100, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz ")]
+        public string Instagram { get; set; }
+
+        [DisplayName("Müəssisə Haqqında Məlumat")]
+        [StringLength(190, ErrorMessage = "{0} {1} simvoldan artıq ola bilməz ")]
+        public string About { get; set; }
     }
 }

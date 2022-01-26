@@ -1,0 +1,38 @@
+﻿@model List<Customer>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"><label asp-for="@Model[0].Orders[0].MenuItem.MenuItemName"></label></th>
+            <th scope="col"><label asp-for="@Model[0].Orders[0].Quantity"></label></th>
+            <th scope="col"><label asp-for="@Model[0].Orders[0].MenuItem.Price"></label></th>
+            <th scope="col"><label asp-for="@Model[0].Name"></label></th>
+            <th scope="col"><label asp-for="@Model[0].PhoneNumber"></label></th>
+            <th scope="col">Toplam</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Customer customer in Model)
+        {
+            <tr class="table-info">
+                <td colspan="5">@(customer.Name +  " (" + customer.PhoneNumber + ") - " + customer.Address+" - "+customer.Description)</td>
+                <td><a asp-area="Manage" asp-controller="Order" asp-action="Sended" asp-route-Id="@customer.Id" class="btn-warning ">Göndərildi</a></td>
+
+            </tr>
+
+            @foreach (Order order in customer.Orders)
+            {
+                <tr>
+                    <td>@order.MenuItem.MenuItemName</td>
+                    <td>@order.Quantity</td>
+                    <th>@order.MenuItem.Price</th>
+                    <td>@order.Customer.Name</td>
+                    <td>@order.Customer.PhoneNumber</td>
+                    <td>@(order.Quantity * order.MenuItem.Price)</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

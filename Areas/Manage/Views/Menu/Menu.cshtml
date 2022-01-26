@@ -1,0 +1,79 @@
+﻿@model List<MenuItem>
+
+<h1>Menyu Ürünləri</h1>
+<hr />
+<div id="reset-editable" class="shadow mb-4">
+    <div class="float-left">
+
+        <a onclick="showInPopup('@Url.Action("AddOrEdit","Menu", null, Context.Request.Scheme)', 'Yeni Menyu', 'Add')" class="btn btn-outline-success btn-circle m-2"><i class="fa fa-plus-circle"></i></a>
+
+        <a onclick="showInPopup('@Url.Action("AddOrEdit","Menu", null, Context.Request.Scheme)', 'Menyunu Dəyiş', 'Edit')" class="btn btn-outline-warning btn-circle m-2"><i class="fa fa-pen"></i></a>
+
+        <form asp-action="Delete" onclick="return jQueryAjaxDelete(this)" class="d-inline">
+            <a class="btn btn-outline-danger btn-circle m-2"><i class="fa fa-eraser"></i></a>
+        </form>
+    </div>
+
+    <table id="Etable" class="table"
+           data-id-field="id"
+           data-unique-id="Id"
+           data-toggle="table"
+           data-toolbar="#toolbar"
+           data-height="470"
+           data-page-size="5"
+           data-page-list="[5, 10, 15, All]"
+           data-show-pagination-switch="true"
+           data-show-export="true"
+           data-search="true"
+           data-visible-search="true"
+           data-show-search-button="true"
+           data-search-on-enter-key="true"
+           data-select-item-name="MenuAdi"
+           data-multiple-select-row="true"
+           data-click-to-select="true"
+           data-remember-order="true"
+           data-buttons-class="outline-primary btn-circle"
+           data-locale="tr-TR">
+        <thead class="thead-light">
+            <tr>
+                <th data-checkbox="true" data-field="Chbx"></th>
+                <th data-visible="false" data-field="Id">Id</th>
+                <th data-field="ImagePath">Şəkil</th>
+                <th data-sortable="true" data-field="MenuItemText">Menu Adi</th>
+                <th data-sortable="true" data-field="MenuItemDescription">Terkibi</th>
+                <th data-sortable="true" data-field="Price">Qiymeti</th>
+                <th data-sortable="true" data-field="MenuItemGroup.MenuItemGroupName">Grub Adi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td id="@item.Id" class="txtbx0">@item.Id</td>
+                    <td id="@item.Id" class="txtbx1 p-1">
+                        <div class="center-cropped img-thumbnail" style="background-image: url('/images/@item.ImagePath');">
+                        </div>
+                    </td>
+                    <td id="@item.Id" class="txtbx2">@item.MenuItemName</td>
+                    <td id="@item.Id" class="txtbx3">@item.MenuItemDescription</td>
+                    <td id="@item.Id" class="txtbx4">@item.Price</td>
+                    <td id="@item.Id" class="cmbx">@item.MenuItemGroup.MenuItemGroupName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@section Styles{
+    <link href="~/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="~/bootstrap-table/dist/bootstrap-table.js"></script>
+    <script src="~/bootstrap-table/dist/extensions/export/bootstrap-table-export.js"></script>
+    <script src="~/bootstrap-table/dist/locale/bootstrap-table-tr-TR.js"></script>
+}

@@ -1,0 +1,150 @@
+
+
+/*buttons shadow  */
+
+.btn-outline-success:hover {
+    box-shadow: 0px 0px 5px 0px rgb(92, 184, 92), 0px 0px 5px 0px rgb(92, 184, 92);
+}
+
+.btn-outline-warning:hover {
+    box-shadow: 0px 0px 5px 0px rgb(240, 173, 78), 0px 0px 5px 0px rgb(240, 173, 78);
+}
+
+.btn-outline-danger:hover {
+    box-shadow: 0px 0px 5px 0px rgb(217, 83, 79), 0px 0px 5px 0px rgb(217, 83, 79);
+}
+/*buttons shadow end*/
+
+/* CSS for Loader spin */
+.loaderbody {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(128,128,128,0.2);
+    z-index: 2147483647;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 45%;
+    left: 40%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hide {
+    display: none;
+}
+/* CSS for Loader spin end*/
+
+/*table image column*/
+.center-cropped {
+    width: auto;
+    height: 50px;
+    background-size : cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+/*table image column end*/
+
+/*image chooser*/
+
+.image-container {
+    width: 100%;
+    position: relative;
+    height: unset;
+    border-color: transparent;
+}
+
+#news-image {
+    min-width: 100%;
+    min-height: 157px;
+    cursor: pointer;
+    width: 100%;
+    max-height: 250px;
+}
+
+
+/*img[src=""] + i.empty-icon:after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    cursor: pointer;
+    content: "\f03e";
+    font-size: 42pt;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}*/
+
+/*img + i + a > i.clear-icon:after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f00d";
+    font-size: 12pt;
+}*/
+
+i.header-right-button {
+    right: 24px;
+    top: 14px;
+    position: absolute;
+    cursor: pointer;
+}
+
+/*img[src=""] + i + a > i.clear-icon::after {
+    display: none;
+}*/
+
+/*image chooser end*/
+
+/*input icon container*/
+.input-container {
+    display: -ms-flexbox; /*IE10 */
+    display: flex;
+}
+
+.icon {
+    opacity: 0.8;
+    padding: 10px;
+    background: #4e73de;
+    color: white;
+    min-width: 42px;
+    text-align: center;
+    border-top-left-radius: 0.35rem;
+    border-bottom-left-radius: 0.35rem;
+}
+
+.input-field {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+    .input-field:focus {
+        border: 2px solid #4e73de;
+    }
+/*input icon container end*/

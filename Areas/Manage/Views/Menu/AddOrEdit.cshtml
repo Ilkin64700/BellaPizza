@@ -1,0 +1,68 @@
+﻿@model MenuItem
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AddOrEdit" asp-route-id="@Model.Id" onsubmit="return FormPost(this);" autocomplete="off" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group">
+                        <label asp-for="MenuItemName" class="control-label"></label>
+                        <input asp-for="MenuItemName" class="form-control" />
+                        <span asp-validation-for="MenuItemName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label image-container">
+                            <img id="news-image" src="" class="img-thumbnail" />
+                            <a href="javascript:removePhoto()"><i class="clear-icon header-right-button"></i></a>
+
+                            <input asp-for="ImagePath"
+                                   type="file"
+                                   id="mediaUrl"
+                                   style="display:none"
+                                   accept="image/*"
+                                   onchange="readURL(this)"
+                                   class="form-control" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label asp-for="MenuItemDescription" class="control-label"></label>
+                        <textarea asp-for="MenuItemDescription" class="form-control"></textarea>
+                        <span asp-validation-for="MenuItemDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <label asp-for="MenuItemGroupId" class="control-label"></label>
+                        <div class="input-group">
+                            <select asp-for="MenuItemGroupId" class="form-control" asp-items="ViewBag.MenuItemGroup"></select>
+                            <div class="input-group-append">
+                                <a class="btn btn-outline-success input-group-btn" asp-action="MenuItemGroupList"><i class="fa fa-plus-circle"></i></a>
+                            </div>
+                        </div>
+                        <span asp-validation-for="MenuItemGroupId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
