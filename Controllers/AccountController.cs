@@ -116,7 +116,7 @@ namespace BellaPizza.Controllers
 
             string emailbody = string.Empty;
 
-            using (StreamReader stream = new StreamReader(Path.Combine(_environment.WebRootPath, "template", "email.html")))
+            using (StreamReader stream = new StreamReader(Path.Combine(_environment.WebRootPath, "sample", "email.html")))
             {
                 emailbody = stream.ReadToEnd();
             }
@@ -188,7 +188,7 @@ namespace BellaPizza.Controllers
 
             string emailbody = string.Empty;
 
-            using (StreamReader stream = new StreamReader(Path.Combine(_environment.WebRootPath, "template", "forgetpassword.html")))
+            using (StreamReader stream = new StreamReader(Path.Combine(_environment.WebRootPath, "sample", "forgetpassword.html")))
             {
                 emailbody = stream.ReadToEnd();
             }
@@ -264,26 +264,26 @@ namespace BellaPizza.Controllers
             return RedirectToAction("Login");
         }
 
+        #region
+        //public async Task<IActionResult> Addrole()
+        //{
+        //    if (!await _roleManager.RoleExistsAsync("Admin"))
+        //    {
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+        //    }
+        //    if (!await _roleManager.RoleExistsAsync("Member"))
+        //    {
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+        //    }
+        //    if (!await _roleManager.RoleExistsAsync("User"))
+        //    {
+        //        await _roleManager.CreateAsync(new IdentityRole { Name = "User" });
+        //    }
 
-        public async Task<IActionResult> Addrole()
-        {
-            if (!await _roleManager.RoleExistsAsync("Admin"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-            }
-            if (!await _roleManager.RoleExistsAsync("Member"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-            }
-            if (!await _roleManager.RoleExistsAsync("User"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole { Name = "User" });
-            }
+        //    return Content("role yarandi");
+        //}
+        #endregion
 
-            return Content("role yarandi");
-        }
-
-        
 
 
     }
