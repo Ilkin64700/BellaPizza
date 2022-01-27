@@ -1,7 +1,9 @@
+using BellaPizza.Models;
 using BellaPizza.Models.Context;
 using BellaPizza.Models.Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -37,8 +39,22 @@ namespace BellaPizza
 
             services.AddDbContext<BellaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BellaStr")));
 
-            services.AddIdentity<BellaUser, BellaRole>()
-                .AddEntityFrameworkStores<BellaContext>();
+            services.AddIdentity<AppUser, IdentityRole>(identityoption => {
+
+                identityoption.Password.RequireDigit = true;
+                identityoption.Password.RequiredLength = 8;
+                identityoption.Password.RequireLowercase = true;
+                identityoption.Password.RequireUppercase = true;
+                identityoption.Password.RequiredUniqueChars = 1;
+
+                identityoption.User.RequireUniqueEmail = true;
+
+                identityoption.Lockout.MaxFailedAccessAttempts = 5;
+                identityoption.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+                identityoption.Lockout.AllowedForNewUsers = true;
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<BellaContext>();
+
+            services.AddHttpContextAccessor();
 
 
             services.AddSession(options =>
@@ -62,12 +78,16 @@ namespace BellaPizza
                 app.UseExceptionHandler("Manage/Dashboard/Error");
                 app.UseHsts();
             }
-            app.UseSession();
 
-            app.UseStaticFiles();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseStaticFiles();
+
+            app.UseSession();
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

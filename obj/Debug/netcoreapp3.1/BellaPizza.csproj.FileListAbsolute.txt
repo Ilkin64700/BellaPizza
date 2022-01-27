@@ -440,8 +440,11 @@ C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Microsoft.AspNetCo
 C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
-C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgetPassword.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shared\Error404.cshtml.g.cs
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Dashboard\Error.cshtml.g.cs
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\ASUS\source\repos\BellaPizza\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgetPassword.cshtml.g.cs

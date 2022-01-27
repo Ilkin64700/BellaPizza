@@ -7,8 +7,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
@@ -16,7 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Varela&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css?v=101" />
     <title> appDetail.WebTitle</title>
 </head>
 
@@ -64,279 +64,282 @@
                                 </a> }
                             else
                             {
-                                
-                                <a asp-controller="Account" asp-action="Login" style="font-size: 25px;">
-                                    Giriş
-                                </a>}
+                            <li class="nav-item hidden-sm">
+                                <a asp-controller="Account" asp-action="Login"  class="nav-link login-button">
+                                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                                    <span>Daxil ol</span>
+                                </a>
+                            </li>
+                        }
 
-                        </div>
-                        <li class="nav-item hidden-sm custom-dropdown">
-                            <a class="nav-link order-button" asp-controller="ShoppingCart" asp-action="Index">
-                                <span>
-                                    @await Component.InvokeAsync("CartCount");
-                                </span>
-                                <br>
-                                <i class="fas fa-2x fa-shopping-basket" aria-hidden="true"></i>
-                            </a>
-                        </li>
+                    </div>
+                    <li class="nav-item hidden-sm custom-dropdown">
+                        <a class="nav-link order-button" asp-controller="ShoppingCart" asp-action="Index">
+                            <span>
+                                @await Component.InvokeAsync("CartCount")
+                            </span>
+                            <br>
+                            <i class="fas fa-2x fa-shopping-basket" aria-hidden="true"></i>
+                        </a>
+                    </li>
                     </ul>
                 </div>
-            </div>
-            <div class="mobileMenuAlt">
-                <div class="container mobile_menu_information">
-                    <div class="phones">
-                        <div class="phone">
-                            <a href="tel:+994 55 532 17 17" itemprop="telephone">
-                                <span class="ph">+994 <strong class=""> 55 532 17 17</strong> </span>
-                            </a>
-                        </div>
-                        <div class="subphone">
-                            <a href="tel:*1717">
-                                <strong>*1717</strong> <small>
-                                    bütün
-                                    operatorlardan
-                                </small>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cart js-cart disabled">
-                        <div class="cart-inner js-cart-inner">
-                            <i class="fas ico-cart fa-2x fa-shopping-basket" aria-hidden="true"></i>
-                            <div class="txt">
-                                <a href="sebet">
-                                    <span>
-                                        <span id="product-length-mobile">
-                                            0
-                                        </span>
-                                        məhsul
-                                    </span>
-                                </a>
-                                <div class="dropdown-content">
-                                    <a href="#">Link 1</a>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </nav>
-        <div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-             style="display: none; padding-right: 16px;" aria-modal="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">Daxil ol</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body loginBox">
-                        <form id="log_form" action="" method="post" autocomplete="off">
-                            <div class="form-group">
-                                <label for="phone1">Mobil nömrəni daxil et</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"
-                                              style="border-top-right-radius: 0;border-bottom-right-radius: 0;">+994</span>
-                                        <span class="">
-                                            <select name="prefixLogin" id="prefixLogin" class="form-control"
-                                                    style="padding: 5px;border-radius: 0;">
-                                                <option value="50">50</option>
-                                                <option value="51">51</option>
-                                                <option value="55">55</option>
-                                                <option value="70">70</option>
-                                                <option value="77">77</option>
-                                                <option value="99">99</option>
-                                                <option value="60">60</option>
-                                            </select>
-                                        </span>
-                                    </div>
-                                    <input maxlength="7" type="text" name="phone" class="form-control" id="phone1"
-                                           placeholder="Mobil nömrəni daxil et...">
-                                </div>
+                <div class="mobileMenuAlt">
+                    <div class="container mobile_menu_information">
+                        <div class="phones">
+                            <div class="phone">
+                                <a href="tel:+994 55 532 17 17" itemprop="telephone">
+                                    <span class="ph">+994 <strong class=""> 55 532 17 17</strong> </span>
+                                </a>
                             </div>
-                            <div class="form-group">
-                                <label for="password1">Şifrəni daxil et</label>
-                                <input type="password" name="password" class="form-control" id="password1"
-                                       placeholder="Şifrəni daxil et...">
-                            </div>
-                            <input type="hidden" name="csrf_token" value="61bf1a9d5fc26e24b23b6dfdc1f87792">
-                            <button type="submit" class="btn btn-info btn-block btn-round loginBtn">Daxil ol</button>
-                        </form>
-
-                        <div class="text-right">
-                            <a href="forgotten-password" class="forgot">Şifrəni unutmusunuz ?</a>
-                        </div>
-
-                        <div class="text-center text-muted delimiter">
-                            <span>və ya</span>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <div class="signup-section">
-                                <a href="#" class="text-info regModal" data-toggle="modal" data-target="#regModal"
-                                   data-dismiss="modal">
-                                    Qeydiyyatdan keçin
+                            <div class="subphone">
+                                <a href="tel:*1717">
+                                    <strong>*1717</strong> <small>
+                                        bütün
+                                        operatorlardan
+                                    </small>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                        <div class="cart js-cart disabled">
+                            <div class="cart-inner js-cart-inner">
+                                <i class="fas ico-cart fa-2x fa-shopping-basket" aria-hidden="true"></i>
+                                <div class="txt">
+                                    <a href="sebet">
+                                        <span>
+                                            <span id="product-length-mobile">
+                                                0
+                                            </span>
+                                            məhsul
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-content">
+                                        <a href="#">Link 1</a>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="modal fade " id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel"
-             aria-modal="true" style="display:none; padding-left: 16px;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="regModalLabel">Qeydiyyatdan keçin</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body registerBlock">
-                        <form id="reg-form" action="" method="post" autocomplete="off">
-                            <div class="form-group">
-                                <label for="name">Sizin Adınız</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Sizin Adınız"
-                                       required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Mobil nömrəni daxil et</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"
-                                              style="border-top-right-radius: 0;border-bottom-right-radius: 0;">+994</span>
-                                        <span class="">
-                                            <select name="prefix" id="prefix" class="form-control"
-                                                    style="padding: 5px;border-radius: 0;">
-                                                <option value="50">50</option>
-                                                <option value="51">51</option>
-                                                <option value="55">55</option>
-                                                <option value="70">70</option>
-                                                <option value="77">77</option>
-                                                <option value="99">99</option>
-                                                <option value="60">60</option>
-                                            </select>
-                                        </span>
+            </nav>
+            <div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+                 style="display: none; padding-right: 16px;" aria-modal="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Daxil ol</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body loginBox">
+                            <form id="log_form" action="" method="post" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="phone1">Mobil nömrəni daxil et</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"
+                                                  style="border-top-right-radius: 0;border-bottom-right-radius: 0;">+994</span>
+                                            <span class="">
+                                                <select name="prefixLogin" id="prefixLogin" class="form-control"
+                                                        style="padding: 5px;border-radius: 0;">
+                                                    <option value="50">50</option>
+                                                    <option value="51">51</option>
+                                                    <option value="55">55</option>
+                                                    <option value="70">70</option>
+                                                    <option value="77">77</option>
+                                                    <option value="99">99</option>
+                                                    <option value="60">60</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <input maxlength="7" type="text" name="phone" class="form-control" id="phone1"
+                                               placeholder="Mobil nömrəni daxil et...">
                                     </div>
-                                    <input type="text" name="phone" class="form-control" id="phone"
-                                           placeholder="Mobil nömrəni daxil et" maxlength="7"
-                                           aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password1">Şifrəni daxil et</label>
+                                    <input type="password" name="password" class="form-control" id="password1"
+                                           placeholder="Şifrəni daxil et...">
+                                </div>
+                                <input type="hidden" name="csrf_token" value="61bf1a9d5fc26e24b23b6dfdc1f87792">
+                                <button type="submit" class="btn btn-info btn-block btn-round loginBtn">Daxil ol</button>
+                            </form>
+
+                            <div class="text-right">
+                                <a href="forgotten-password" class="forgot">Şifrəni unutmusunuz ?</a>
+                            </div>
+
+                            <div class="text-center text-muted delimiter">
+                                <span>və ya</span>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="signup-section">
+                                    <a href="#" class="text-info regModal" data-toggle="modal" data-target="#regModal"
+                                       data-dismiss="modal">
+                                        Qeydiyyatdan keçin
+                                    </a>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email"> Elektron poçt</label>
-                                <input type="email" name="email" class="form-control" id="email"
-                                       placeholder=" Elektron poçt" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Şifrəni daxil et</label>
-                                <input type="password" name="pass" class="form-control" id="password"
-                                       placeholder="Şifrəni daxil et" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="passwordCheck">Şifrə təkrar</label>
-                                <input type="password" name="passwordCheck" class="form-control" id="passwordCheck"
-                                       placeholder="Şifrə təkrar" required="">
-                            </div>
-                            <input type="hidden" name="csrf_token" value="b7da54f65ac9f143477171218236fb15">
-                            <button type="submit" class="btn btn-info btn-block btn-round registerBtn">Daxil ol</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <main>
-        @RenderBody()
-    </main>
-    <footer class="pt-5 bella-pizza-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mx-auto text-center">
-                    <h4>Bizim ünvan</h4>
-                    <p>S.Vurğun küç. 61A</p>
+            <div class="modal fade " id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel"
+                 aria-modal="true" style="display:none; padding-left: 16px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="regModalLabel">Qeydiyyatdan keçin</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body registerBlock">
+                            <form id="reg-form" action="" method="post" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="name">Sizin Adınız</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Sizin Adınız"
+                                           required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Mobil nömrəni daxil et</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"
+                                                  style="border-top-right-radius: 0;border-bottom-right-radius: 0;">+994</span>
+                                            <span class="">
+                                                <select name="prefix" id="prefix" class="form-control"
+                                                        style="padding: 5px;border-radius: 0;">
+                                                    <option value="50">50</option>
+                                                    <option value="51">51</option>
+                                                    <option value="55">55</option>
+                                                    <option value="70">70</option>
+                                                    <option value="77">77</option>
+                                                    <option value="99">99</option>
+                                                    <option value="60">60</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <input type="text" name="phone" class="form-control" id="phone"
+                                               placeholder="Mobil nömrəni daxil et" maxlength="7"
+                                               aria-describedby="basic-addon1" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"> Elektron poçt</label>
+                                    <input type="email" name="email" class="form-control" id="email"
+                                           placeholder=" Elektron poçt" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Şifrəni daxil et</label>
+                                    <input type="password" name="pass" class="form-control" id="password"
+                                           placeholder="Şifrəni daxil et" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="passwordCheck">Şifrə təkrar</label>
+                                    <input type="password" name="passwordCheck" class="form-control" id="passwordCheck"
+                                           placeholder="Şifrə təkrar" required="">
+                                </div>
+                                <input type="hidden" name="csrf_token" value="b7da54f65ac9f143477171218236fb15">
+                                <button type="submit" class="btn btn-info btn-block btn-round registerBtn">Daxil ol</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağla</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 mx-auto text-center">
-                    <h4>İş vaxtı</h4>
-                    <ul class="list-unstyled">
-                        <li>11:00 - 23:00</li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mx-auto text-center">
-                    <h4>Bizimlə əlaqə</h4>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a itemprop="email" href="mailto:office@bellapizza.az"
-                               class="email">office@bellapizza.az</a>
-                        </li>
-                        <li>Telefonlar:</li>
-                        <li class="mobPhone">
-                            <a itemprop="telephone" href="tel:*1717">*1717 </a> <span>bütün operatorlardan</span>
-                        </li>
-                        <li class="mobPhone">
-                            <a itemprop="telephone" href="tel:+994 55 532 17 17">
-                                +994 <strong class="">
-                                    55 532 17 17
-                                </strong>
-                            </a>
-                        </li>
-                        <li class="mobPhone">
-                            <a itemprop="telephone" href="tel:+994 12 493 97 17">+994 12 493 97 17 </a>
-                        </li>
-                    </ul>
-                </div>
-
             </div>
-            <div class="row text-center my-4">
-                <div class="col-lg-5 mx-auto col-sm-2">
-                    <hr class="my-4">
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer class="pt-5 bella-pizza-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mx-auto text-center">
+                        <h4>Bizim ünvan</h4>
+                        <p>S.Vurğun küç. 61A</p>
+                    </div>
+                    <div class="col-lg-4 mx-auto text-center">
+                        <h4>İş vaxtı</h4>
+                        <ul class="list-unstyled">
+                            <li>11:00 - 23:00</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 mx-auto text-center">
+                        <h4>Bizimlə əlaqə</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a itemprop="email" href="mailto:office@bellapizza.az"
+                                   class="email">office@bellapizza.az</a>
+                            </li>
+                            <li>Telefonlar:</li>
+                            <li class="mobPhone">
+                                <a itemprop="telephone" href="tel:*1717">*1717 </a> <span>bütün operatorlardan</span>
+                            </li>
+                            <li class="mobPhone">
+                                <a itemprop="telephone" href="tel:+994 55 532 17 17">
+                                    +994 <strong class="">
+                                        55 532 17 17
+                                    </strong>
+                                </a>
+                            </li>
+                            <li class="mobPhone">
+                                <a itemprop="telephone" href="tel:+994 12 493 97 17">+994 12 493 97 17 </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="col-lg-2 mx-auto col-sm-2">
-                    <img src="~/images/logo.png" alt="Logo BellaPizza" class="img-fluid w-100">
+                <div class="row text-center my-4">
+                    <div class="col-lg-5 mx-auto col-sm-2">
+                        <hr class="my-4">
+                    </div>
+                    <div class="col-lg-2 mx-auto col-sm-2">
+                        <img src="~/images/logo.png" alt="Logo BellaPizza" class="img-fluid w-100">
+                    </div>
+                    <div class="col-lg-5 mx-auto col-sm-2">
+                        <hr class="my-4">
+                    </div>
                 </div>
-                <div class="col-lg-5 mx-auto col-sm-2">
-                    <hr class="my-4">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto pb-5">
+                        <p class="text-center ">
+                            Bella Pizza - gülərüz personal, münasib qiymətlər, rahat interyer və ən əsası şəhərin ən
+                            ləzzətli pizzası deməkdir!
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mx-auto pb-5">
-                    <p class="text-center ">
-                        Bella Pizza - gülərüz personal, münasib qiymətlər, rahat interyer və ən əsası şəhərin ən
-                        ləzzətli pizzası deməkdir!
-                    </p>
-                </div>
+            <div class="footer-copyright text-center py-3">
+                <p>© 2016-2021 Bütün hüquqlar qorunur.</p>
+                <a href="#" class="text-white"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram" aria-hidden="true"></i></a>
             </div>
-        </div>
-        <div class="footer-copyright text-center py-3">
-            <p>© 2016-2021 Bütün hüquqlar qorunur.</p>
-            <a href="#" class="text-white"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script src="https://kit.fontawesome.com/21d05e9d38.js" crossorigin="anonymous"></script>
-    <script src="~/js/jquery-3.6.0.js"></script>
-    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>*@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <script src="~/js/script.js"></script>
-    @RenderSection("Scripts", required: false)
-</body>
+        <script src="https://kit.fontawesome.com/21d05e9d38.js" crossorigin="anonymous"></script>
+        <script src="~/js/jquery-3.6.0.js"></script>
+        @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>*@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <script src="~/js/script.js"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
 
 </html>
 

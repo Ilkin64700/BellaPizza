@@ -224,6 +224,7 @@ nav .container .hidden-sm .telephoneHead {
 
 nav .container #navbarTogglerDemo02 ul .nav-item {
   margin-right: 0.2em;
+  cursor: pointer;
 }
 
 nav .container #navbarTogglerDemo02 ul .nav-item .nav-link {

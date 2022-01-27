@@ -46,14 +46,7 @@
                                                 <span>@order.MenuItem.Price <span class="manat">₼</span></span>
                                             </td>
                                             <td class="vincent_product-quantity" data-title="Miqdar">
-                                                <a href="javascript:__qtyUpdate('Decrease',940)">
-                                                    <i class="fas fa-minus-square" aria-hidden="true"></i>
-                                                </a>
-                                                <input type="text" value="@order.Quantity" name="quantity"
-                                                       class="vincent_quantity">
-                                                <a href="javascript:__qtyUpdate('Increase',940)">
-                                                    <i class="fas fa-plus-square" aria-hidden="true"></i>
-                                                </a>
+                                                @order.Quantity
                                             </td>
                                             <td class="vincent_product-subtotal" data-title="Ümumi qiymət">
                                                 <span class="perTotPrice">@(order.MenuItem.Price * order.Quantity)  </span><span class="manat">₼</span>
@@ -61,7 +54,6 @@
                                         </tr>
                                     }
                                 }
-
                             </tbody>
                         </table>
                     </div>
@@ -105,7 +97,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-md-6 col-sm-12">
-                                            <input type="hidden" asp-for="Customer.Id"/>
+                                            <input type="hidden" asp-for="Customer.Id" />
                                             <label asp-for="Customer.Name">Ad</label>
                                             <input asp-for="Customer.Name" type="text" id="Name" class=" form-control" value="">
                                         </div>
@@ -142,7 +134,7 @@
                                     <ul style="display: inline-block;width: 100%;">
                                         <li style="width: 100%;">
                                             <div class="form-group">
-                                                <input asp-for="Customer.Address" type="text" class="form-control" 
+                                                <input asp-for="Customer.Address" type="text" class="form-control"
                                                        placeholder="Ünvan">
                                             </div>
                                         </li>

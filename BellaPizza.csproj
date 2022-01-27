@@ -13,6 +13,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220127200112_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127200112_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127200533_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127200533_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127203112_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127203112_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127203809_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127203809_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127204348_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127204348_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127204641_AddRoleTable.cs" />
+    <Compile Remove="Migrations\20220127204641_AddRoleTable.Designer.cs" />
+    <Compile Remove="Migrations\20220127213657_AddRoleTab.cs" />
+    <Compile Remove="Migrations\20220127213657_AddRoleTab.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
@@ -31,8 +49,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Account\ChangePassword.cshtml" />
-    <None Include="Views\Account\ForgetPassword.cshtml" />
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Account\Register.cshtml" />
   </ItemGroup>
