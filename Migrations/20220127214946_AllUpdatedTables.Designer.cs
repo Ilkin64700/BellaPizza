@@ -264,7 +264,7 @@ namespace BellaPizza.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.Identity  ", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");

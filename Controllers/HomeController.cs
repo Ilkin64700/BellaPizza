@@ -10,28 +10,36 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BellaPizza.ViewModels;
 
 namespace BellaPizza.Controllers
 {
     public class HomeController : Controller
     {
-        public readonly BellaContext bellaContext;
+        private readonly BellaContext _bellaContext;
         public HomeController(BellaContext bellaContext)
         {
-            this.bellaContext = bellaContext;
+            _bellaContext = bellaContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List <MenuItemGroup> menuItemGroups = bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToList();           
 
-            return View(menuItemGroups);
+            CampaignVM campaignVM = new CampaignVM
+            {
+
+                Campaigns = await _bellaContext.Campaigns.ToListAsync(),
+                MenuItemGroups = await _bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToListAsync()
+
+        };
+
+            return View(campaignVM);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetDetail(int? id)
         {
-            MenuItem menuItem = await bellaContext.MenuItems.FindAsync(id);
+            MenuItem menuItem = await _bellaContext.MenuItems.FindAsync(id);
             //MenuItem menuItem2 = await bellaContext.MenuItems.Where(x => x.Id == id).FirstOrDefaultAsync();
             //MenuItem menuItem3 = await bellaContext.MenuItems.FirstOrDefaultAsync(x => x.Id == id);
 

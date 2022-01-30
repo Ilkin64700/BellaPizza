@@ -1,5 +1,7 @@
-﻿
-
+﻿@inject AppDetail _appdetail;
+@{
+    AppDetail appdetail = _appdetail;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css?v=101" />
-    <title> appDetail.WebTitle</title>
+    <title> @appdetail.WebTitle</title>
 </head>
 
 <body>
@@ -65,7 +67,7 @@
                             else
                             {
                             <li class="nav-item hidden-sm">
-                                <a asp-controller="Account" asp-action="Login"  class="nav-link login-button">
+                                <a asp-controller="Account" asp-action="Login" class="nav-link login-button">
                                     <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
                                     <span>Daxil ol</span>
                                 </a>
@@ -285,14 +287,14 @@
                                 <a itemprop="telephone" href="tel:*1717">*1717 </a> <span>bütün operatorlardan</span>
                             </li>
                             <li class="mobPhone">
-                                <a itemprop="telephone" href="tel:+994 55 532 17 17">
+                                <a itemprop="telephone" href="tel:@{@appdetail.PhoneNumber}">
                                     +994 <strong class="">
-                                        55 532 17 17
+                                        @{@appdetail.PhoneNumber}
                                     </strong>
                                 </a>
                             </li>
                             <li class="mobPhone">
-                                <a itemprop="telephone" href="tel:+994 12 493 97 17">+994 12 493 97 17 </a>
+                                <a itemprop="telephone" href="tel:@{@appdetail.PhoneNumber}">@{@appdetail.PhoneNumber} </a>
                             </li>
                         </ul>
                     </div>

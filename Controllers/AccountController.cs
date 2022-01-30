@@ -3,37 +3,37 @@ using BellaPizza.Models.Entity;
 using BellaPizza.ViewModels.Account;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace BellaPizza.Controllers
 {
     public class AccountController : Controller
     {
-       private readonly SignInManager<AppUser> _signInManager;
-       private readonly UserManager<AppUser> _userManager;
-       private readonly RoleManager<IdentityRole> _roleManager;
-       private readonly IWebHostEnvironment _environment;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IWebHostEnvironment _environment;
 
         public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IWebHostEnvironment environment)
         {
-           _signInManager = signInManager;
-           _userManager = userManager;
-           _roleManager = roleManager;
-           _environment = environment;
+            _signInManager = signInManager;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _environment = environment;
         }
 
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM loginVM)
@@ -54,7 +54,7 @@ namespace BellaPizza.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(appUser, loginVM.Password, true, true);
+            SignInResult signInResult = await _signInManager.PasswordSignInAsync(appUser, loginVM.Password, true, true);
 
             if (signInResult.IsLockedOut)
             {
@@ -76,6 +76,7 @@ namespace BellaPizza.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVM register)
@@ -232,6 +233,7 @@ namespace BellaPizza.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //[Authorize(Roles = "Admin, Member")]
         public async Task<IActionResult> ChangePassword(ForgetPassVM forgetPassVM)
         {
             if (!ModelState.IsValid)
@@ -264,7 +266,7 @@ namespace BellaPizza.Controllers
             return RedirectToAction("Login");
         }
 
-        #region
+        #region //seed data
         //public async Task<IActionResult> Addrole()
         //{
         //    if (!await _roleManager.RoleExistsAsync("Admin"))
@@ -278,6 +280,13 @@ namespace BellaPizza.Controllers
         //    if (!await _roleManager.RoleExistsAsync("User"))
         //    {
         //        await _roleManager.CreateAsync(new IdentityRole { Name = "User" });
+        //    }
+
+        //    AppUser user = _userManager.FindByEmailAsync("izamanli97@gmail.com").Result;
+
+        //    if (!_userManager.IsInRoleAsync(user, "Admin").Result)
+        //    {
+        //        _userManager.AddToRoleAsync(user, "Admin").Wait();
         //    }
 
         //    return Content("role yarandi");

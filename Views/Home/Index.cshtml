@@ -1,4 +1,5 @@
-﻿@model List<MenuItemGroup>
+﻿@model CampaignVM
+ 
 <section>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -34,7 +35,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
-                    @foreach (MenuItemGroup menuItemGroup in Model)
+                    @foreach (MenuItemGroup menuItemGroup in Model.MenuItemGroups)
                     {
                         <li class="nav-item ">
                             <a class="nav-link" data-filter=".subhan-@{@menuItemGroup.Id}">
@@ -114,7 +115,7 @@
     <div class="container">
 
         <div class="row product-list">
-            @foreach (MenuItemGroup group in Model)
+            @foreach (MenuItemGroup group in Model.MenuItemGroups)
             {
                 if (group.MenuItems.Any())
                 {
@@ -175,71 +176,30 @@
             </div>
         </div>
         <div class="card-deck">
-            <div class="col-md-4">
-                <div class="card myCard ">
-                    <a href="masterklass.html">
-                        <img class="card-img-top" src="~/images/9_0 (1).jpg" alt="Card image cap">
-                        <div class="cardFooter">
-                            <div class="card-date">
-                                <div class="preparation-date card-date-item">
-                                    <p>Fevral 17, 2020</p>
+            @foreach (Campaign campaign in Model.Campaigns)
+            {
+                <div class="col-md-4">
+                    <div class="card myCard ">
+                        <a asp-controller="Campaign" asp-action="Detail" asp-route-Id="@campaign.Id">
+                            <img class="card-img-top" src="~/images/@campaign.Image" alt="Card image cap">
+                            <div class="cardFooter">
+                                <div class="card-date">
+                                    <div class="preparation-date card-date-item">
+                                        <p>Fevral 17, 2020</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@campaign.Title</h5>
+                                    <p class="card-text section-text-grey">
+                                        @campaign.Description
+                                    </p>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Master-klass</h5>
-                                <p class="card-text section-text-grey">
-                                    Bella Pizza-dan uşaqlar üçün əyləncəli
-                                    master klass: pizzanı öz əllərimizlə hazırlayırıq! ❤
-                                </p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card myCard ">
-                    <a href="adgunu.html">
-                        <img class="card-img-top" src="~/images/3_0.jpg" alt="Card image cap">
-                        <div class="cardFooter">
-                            <div class="card-date">
-                                <div class="preparation-date card-date-item">
-                                    <p>Yanvar 13, 2020</p>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Ad Günü</h5>
-                                <p class="card-text section-text-grey">
-                                    Balacalarınız üçün möhtəşəm ad günü
-                                    keçirmək istəyirsinizsə, Bella Pizza-ya müraciət edin!
-                                    Sizi əyləncəli proqram, peşəkar servis və ləziz təamlar gözləyir!
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card myCard ">
-                    <a href="usaqlarucunparty.html">
-                        <img class="card-img-top" src="~/images/2_0.jpg" alt="Card image cap">
-                        <div class="cardFooter">
-                            <div class="card-date">
-                                <div class="preparation-date card-date-item">
-                                    <p>May 05, 2019</p>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Uşaqlar üçün party</h5>
-                                <p class="card-text section-text-grey">
-                                    Xüsusi emosiyaların və unudulmaz
-                                    xatirələrin vaxtı gəlib! Sizi və övladlarınızı şən və unikal ab-havaya
-                                    qatılmaq üçün Bella Pizza-da keçirilən uşaq party-lərinə dəvət edirik!
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>

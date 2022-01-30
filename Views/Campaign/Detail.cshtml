@@ -1,0 +1,66 @@
+﻿@model Campaign
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section class="blog-page-header">
+    <div class="header-img-overlay-black"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  text-white">
+                <h1>Bloq</h1>
+                <p class="lead">Ad Günü</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="post-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mt-4 section-title">Ad Günü</h2>
+                <p class="section-text-grey">
+                    by
+                    <a href="/" class="post-link">Bella Pizza</a>
+                </p>
+                <hr>
+                <small class="section-text-grey">Yanvar 13, 2020</small>
+                <hr>
+                <img class="img-fluid rounded" src="~/images/@Model.Image" alt="Loyallıq proqramı" width="100%">
+                <hr>
+                <p>
+                    <span style="font-size:16px">
+                        <span style="font-family:arial,helvetica,sans-serif">
+                            <span style="color:#008000">
+                                <strong>
+                                    @Model.Title
+                                    <br>
+                                    Sizi əyləncəli proqram, peşəkar servis və ləziz təamlar gözləyir!
+                                    <br>
+                                    @Model.Description
+                                    &nbsp;
+                                </strong>
+                            </span>
+                        </span>
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="card my-4">
+                    <h5 class="card-header">Digər tədbirlər</h5>
+                    <div class="card-body p-3">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <a href="masterklass.html" class="post-link">Master-klass</a>
+                            </li>
+                            <li class="mb-3">
+                                <a href="usaqlarucunparty.html" class="post-link">Uşaqlar üçün party</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

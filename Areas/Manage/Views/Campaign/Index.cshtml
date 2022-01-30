@@ -1,0 +1,39 @@
+﻿@model ICollection<Campaign>
+@{
+    ViewData["Title"] = "Index";
+    var count = 1;
+}
+
+<h1 class="h3 mb-4 text-gray-800">Kampaniyalar</h1>
+
+<a class="btn btn-outline-success" asp-action="Create"> <i class="far fa-caret-square-right"></i>Create </a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlıq</th>
+            <th scope="col">Məzmun</th>
+            <th scope="col">Şəkil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Campaign campaign in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@campaign.Title</td>
+                <td>@campaign.Description</td>
+                <td>
+                    <img style="width:200px; height:200px; border-radius:50%" src="~/images/@campaign.Image" alt="">
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-Id="@campaign.Id"><i class="fas fa-eraser"></i></a>
+                    <a class="text-danger ml-1" onclick="return confirm('Silmek ucun eminmisiniz?')" asp-action="Delete" asp-route-Id="@campaign.Id"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            count++;
+
+        }
+    </tbody>
+</table>

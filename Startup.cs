@@ -39,7 +39,8 @@ namespace BellaPizza
 
             services.AddDbContext<BellaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BellaStr")));
 
-            services.AddIdentity<AppUser, IdentityRole>(identityoption => {
+            services.AddIdentity<AppUser, IdentityRole>(identityoption =>
+            {
 
                 identityoption.Password.RequireDigit = true;
                 identityoption.Password.RequiredLength = 8;
@@ -53,6 +54,8 @@ namespace BellaPizza
                 identityoption.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
                 identityoption.Lockout.AllowedForNewUsers = true;
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<BellaContext>();
+
+            services.AddTransient<AppDetail>();
 
             services.AddHttpContextAccessor();
 
