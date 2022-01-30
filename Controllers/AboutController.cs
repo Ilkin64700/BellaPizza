@@ -17,10 +17,10 @@ namespace BellaPizza.Controllers
         }
 
 
-        public IActionResult About()
-        {
-            AppDetail appDetail = BellaContext.AppDetails.FirstOrDefault();
-            return View(appDetail);
-        }
+        //public IActionResult About()
+        //{
+        //    AppDetail appDetail = BellaContext.AppDetails.FirstOrDefault();
+        //    return View(appDetail);
+        //}
     }
 }
