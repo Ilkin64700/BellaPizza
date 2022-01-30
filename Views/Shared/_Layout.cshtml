@@ -63,9 +63,9 @@
                         <div class="button-container d-flex justify-content-between">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <p style="">@User.Identity.Name</p>
+                                <p style="padding-right: 10px; margin-top:10px">@User.Identity.Name</p>
                                 <br />
-                                <a asp-controller="Account" asp-action="Logout" style="">
+                                <a asp-controller="Account" asp-action="Logout" style="text-decoration: none; color: #222222; padding-right: 10px; margin-top: 10px">
                                     Çıxış
                                 </a> }
                             else
