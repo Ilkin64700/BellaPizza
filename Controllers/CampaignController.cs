@@ -28,16 +28,16 @@ namespace BellaPizza.Controllers
             return View(campaignVM);
         }
 
-        public async Task<ActionResult> Detail(int? Id)
-        {
-            if (Id == null)
-                return NotFound();
+        //public async Task<ActionResult> Detail(int? Id)
+        //{
+        //    if (Id == null)
+        //        return NotFound();
 
-            Campaign campaign = new Campaign();
-            campaign = await _bellacontext.Campaigns.FirstOrDefaultAsync(x => x.Id == Id);
-            if (campaign == null)
-                return NotFound();
-            return View(campaign);
-        }
+        //    Campaign campaign = new Campaign();
+        //    campaign = await _bellacontext.Campaigns.FirstOrDefaultAsync(x => x.Id == Id);
+        //    if (campaign == null)
+        //        return NotFound();
+        //    return View(campaign);
+        //}
     }
 }
