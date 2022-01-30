@@ -22,7 +22,7 @@ namespace BellaPizza.Controllers
         public IActionResult Index()
         {
             List<Order> cart = SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart");
-            
+
             if (cart != null)
                 ViewBag.total = cart.Sum(item => item.MenuItem.Price * item.Quantity);
 
@@ -35,22 +35,22 @@ namespace BellaPizza.Controllers
         }
 
 
-        public IActionResult Buy(int id)
+        public IActionResult Buy(MenuOrderVM menuOrderVM)
         {
             if (SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart") == null)
             {
                 List<Order> cart = new List<Order>();
-                cart.Add(new Order { MenuItem = bellaContext.MenuItems.Find(id), Quantity = 1 });
+                cart.Add(new Order { MenuItem = bellaContext.MenuItems.Find(menuOrderVM.MenuItem.Id), Quantity = menuOrderVM.Order.Quantity });
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
             else
             {
                 List<Order> cart = SessionHelper.GetObjectFromJson<List<Order>>(HttpContext.Session, "cart");
-                int index = isExist(id);
-                if (isExist(id) != -1)
+                int index = isExist(menuOrderVM.MenuItem.Id);
+                if (isExist(menuOrderVM.MenuItem.Id) != -1)
                     cart[index].Quantity++;
                 else
-                    cart.Add(new Order { MenuItem = bellaContext.MenuItems.Find(id), Quantity = 1 });
+                    cart.Add(new Order { MenuItem = bellaContext.MenuItems.Find(menuOrderVM.MenuItem.Id), Quantity = menuOrderVM.Order.Quantity });
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
             return NoContent();

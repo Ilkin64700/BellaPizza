@@ -45,13 +45,14 @@ namespace BellaPizza.Controllers
 
             if (appUser == null)
             {
-                ModelState.AddModelError("", "Email Və Ya Şifrə Yanlışdır");
+                ModelState.AddModelError("", "bele bir istifadeci yoxdur");
                 return View(loginVM);
             }
 
             if (appUser.EmailConfirmed == false)
             {
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError("", "Emailiniz tesdiqlenmeyib");
+                return View(loginVM);
             }
 
             SignInResult signInResult = await _signInManager.PasswordSignInAsync(appUser, loginVM.Password, true, true);
@@ -64,11 +65,11 @@ namespace BellaPizza.Controllers
 
             if (!signInResult.Succeeded)
             {
-                ModelState.AddModelError("", "Email Və Ya Şifrə Yanlışdır");
+                ModelState.AddModelError("", "Şifrə Yanlışdır");
                 return View(loginVM);
             }
 
-
+            await _signInManager.SignInAsync(appUser, true);
             return RedirectToAction("Index", "Home");
         }
 
@@ -108,8 +109,6 @@ namespace BellaPizza.Controllers
 
             await _userManager.AddToRoleAsync(appUser, "Member");
 
-            await _signInManager.SignInAsync(appUser, false);
-
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Ilkin", "ilkinzamanov835@gmail.com"));
             message.To.Add(new MailboxAddress(appUser.Name, appUser.Email));
@@ -133,7 +132,7 @@ namespace BellaPizza.Controllers
             smtp.Send(message);
             smtp.Disconnect(true);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
         }
 
         public async Task<IActionResult> ConfirmEmail(string Id, string token)
@@ -267,30 +266,23 @@ namespace BellaPizza.Controllers
         }
 
         #region //seed data
-        //public async Task<IActionResult> Addrole()
-        //{
-        //    if (!await _roleManager.RoleExistsAsync("Admin"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("Member"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-        //    }
-        //    if (!await _roleManager.RoleExistsAsync("User"))
-        //    {
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = "User" });
-        //    }
+        public async Task<IActionResult> Addrole()
+        {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            }
 
-        //    AppUser user = _userManager.FindByEmailAsync("izamanli97@gmail.com").Result;
+            AppUser user = _userManager.FindByEmailAsync("izamanli97@gmail.com").Result;
 
-        //    if (!_userManager.IsInRoleAsync(user, "Admin").Result)
-        //    {
-        //        _userManager.AddToRoleAsync(user, "Admin").Wait();
-        //    }
+            if (!_userManager.IsInRoleAsync(user, "Admin").Result)
+            {
+                var result = await _userManager.AddToRoleAsync(user, "Admin");
 
-        //    return Content("role yarandi");
-        //}
+            }
+
+            return Content("role yarandi");
+        }
         #endregion
 
 

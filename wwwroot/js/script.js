@@ -47,7 +47,29 @@ AjaxPost = form => {
     return false;
 }
 
+//document.onload = function () {
+//    let plusBtn = document.querySelectorAll('[data-type="Increase"]')[0];
+//    let inputNmbr = document.querySelectorAll(".qty-box input.form-control")[0]
+//    plusBtn.addEventListener('click', event => {
+//        let count = inputNmbr.value;
+//        count = parseInt(count)
+//        let Newcount = count + 1;
+//        inputNmbr.value = Newcount;
+//    });
 
+//}
+
+function Increase() {
+    let inputNmbr = document.querySelectorAll(".qty-box input.form-control")[0];
+    let count = parseInt(inputNmbr.value);
+    inputNmbr.value = count + 1;
+}
+
+function Decrease() {
+    let inputNmbr = document.querySelectorAll(".qty-box input.form-control")[0];
+    let count = parseInt(inputNmbr.value);
+    inputNmbr.value = count - 1;
+}
 
 
 

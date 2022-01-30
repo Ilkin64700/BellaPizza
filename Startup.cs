@@ -1,3 +1,4 @@
+using BellaPizza.AppCode.Helpers;
 using BellaPizza.Models;
 using BellaPizza.Models.Context;
 using BellaPizza.Models.Entity;
@@ -31,7 +32,7 @@ namespace BellaPizza
         {
 
             services.AddDistributedMemoryCache(); //before AddControllersWithViews
-
+            services.AddRazorPages();
             services.AddControllersWithViews()
                 .AddSessionStateTempDataProvider()
                 .AddNewtonsoftJson(options =>
@@ -53,12 +54,13 @@ namespace BellaPizza
                 identityoption.Lockout.MaxFailedAccessAttempts = 5;
                 identityoption.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
                 identityoption.Lockout.AllowedForNewUsers = true;
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<BellaContext>();
+            }).AddRoles<IdentityRole>()
+            .AddDefaultTokenProviders()
+              .AddEntityFrameworkStores<BellaContext>();
 
             services.AddTransient<AppDetail>();
 
             services.AddHttpContextAccessor();
-
 
             services.AddSession(options =>
             {

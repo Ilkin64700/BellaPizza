@@ -1,5 +1,5 @@
 ﻿@model CampaignVM
- 
+
 <section>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -35,10 +35,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
+
                     @foreach (MenuItemGroup menuItemGroup in Model.MenuItemGroups)
                     {
                         <li class="nav-item ">
-                            <a class="nav-link" data-filter=".subhan-@{@menuItemGroup.Id}">
+                            <a class="nav-link" data-filter=".cat-@{@menuItemGroup.Id}">
                                 @menuItemGroup.MenuItemGroupName <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -119,14 +120,14 @@
             {
                 if (group.MenuItems.Any())
                 {
-                    <div class="col-sm-12 mix subhan-@{@group.Id}">
+                    <div class="col-sm-12 mix cat-@{@group.Id}">
                         <h2 class="anchor"><b>@group.MenuItemGroupName</b></h2>
                     </div>
                     foreach (MenuItem menuItem in group.MenuItems)
                     {
-                        <div class="col-lg-3 mb-4 mix subhan-@{@group.Id}" data-order="@{@group.Id}">
+                        <div class="col-lg-3 mb-4 mix cat-@{@group.Id}" data-order="@{@group.Id}">
                             <a onclick="AjaxGet('@Url.Action("GetDetail","Home", new { Id = menuItem.Id }, Context.Request.Scheme)')">
-                                <div class="menu-box-with-order p-div" data-toggle="modal" data-target="#productModal" data-id="59" data-slug="tropical">
+                                <div class="menu-box-with-order p-div" data-toggle="modal" data-target="#productModal">
                                     <div class="menu-box-img-price img flex align-items-center r-relative">
                                         @if (menuItem.IsNew == true)
                                         {
@@ -134,7 +135,7 @@
                                                 <span class="food-new">Yeni</span>
                                             </span>
                                         }
-                                        <img src="~/images/@menuItem.ImagePath" alt="Tropical" class="img-fluid" id="_59_img">
+                                        <img src="~/images/@menuItem.ImagePath" class="img-fluid">
                                     </div>
                                     <div class="mt-3 px-3 textSec">
                                         <h5 class="text-green pizza-name-here mb-0">@menuItem.MenuItemName</h5>
@@ -161,10 +162,10 @@
         </div>
     </div>
     @*<div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+            <div class="modal-dialog">
 
-        </div>
-    </div>*@
+            </div>
+        </div>*@
 </section>
 
 <section class="events-and-news-section">
@@ -266,11 +267,12 @@
 
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="~/js/script.js"></script>
     <script>
         if ($('.row.product-list').length > 0) {
             var containerEl = document.querySelector('.row.product-list');
             var mixer = mixitup(containerEl);
+            mixer.filter('.cat-1');
         }
+
     </script>
 }

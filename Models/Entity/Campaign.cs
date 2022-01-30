@@ -14,8 +14,10 @@ namespace BellaPizza.Models.Entity
         public string Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
         [StringLength(255)]
         public string ImageName { get; set; }
+
         [NotMapped]
         [Required(ErrorMessage = "Zəhmət olmasa şəkil seçin")]
         [DataType(DataType.Upload)]

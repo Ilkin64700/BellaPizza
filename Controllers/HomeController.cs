@@ -17,6 +17,7 @@ namespace BellaPizza.Controllers
     public class HomeController : Controller
     {
         private readonly BellaContext _bellaContext;
+
         public HomeController(BellaContext bellaContext)
         {
             _bellaContext = bellaContext;
@@ -24,14 +25,11 @@ namespace BellaPizza.Controllers
 
         public async Task<IActionResult> Index()
         {
-
             CampaignVM campaignVM = new CampaignVM
             {
-
                 Campaigns = await _bellaContext.Campaigns.ToListAsync(),
                 MenuItemGroups = await _bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToListAsync()
-
-        };
+            };
 
             return View(campaignVM);
         }
@@ -40,14 +38,11 @@ namespace BellaPizza.Controllers
         public async Task<IActionResult> GetDetail(int? id)
         {
             MenuItem menuItem = await _bellaContext.MenuItems.FindAsync(id);
-            //MenuItem menuItem2 = await bellaContext.MenuItems.Where(x => x.Id == id).FirstOrDefaultAsync();
-            //MenuItem menuItem3 = await bellaContext.MenuItems.FirstOrDefaultAsync(x => x.Id == id);
+            Order order = new Order() { Quantity = 1 };
+            MenuOrderVM menuOrderVM = new MenuOrderVM(order, menuItem);
 
-            return View(menuItem);
+            return View(menuOrderVM);
         }
-
-        
-
     }
 }
 

@@ -1,7 +1,11 @@
-﻿@inject AppDetail _appdetail;
+﻿
+@inject BellaContext bellaContext
 @{
-    AppDetail appdetail = _appdetail;
+    AppDetail appdetail = bellaContext.AppDetails.FirstOrDefault();
+
 }
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css?v=101" />
+    <link rel="stylesheet" href="~/css/style.css?v=101" type="text/css" />
     <title> @appdetail.WebTitle</title>
 </head>
 
@@ -59,9 +63,9 @@
                         <div class="button-container d-flex justify-content-between">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <p style="font-size:25px">@User.Identity.Name</p>
+                                <p style="">@User.Identity.Name</p>
                                 <br />
-                                <a asp-controller="Account" asp-action="Logout" style="font-size: 15px;">
+                                <a asp-controller="Account" asp-action="Logout" style="">
                                     Çıxış
                                 </a> }
                             else
@@ -91,8 +95,8 @@
                     <div class="container mobile_menu_information">
                         <div class="phones">
                             <div class="phone">
-                                <a href="tel:+994 55 532 17 17" itemprop="telephone">
-                                    <span class="ph">+994 <strong class=""> 55 532 17 17</strong> </span>
+                                <a href="tel: @appdetail.PhoneNumber" itemprop="telephone">
+                                    <span class="ph"><strong class=""> @appdetail.PhoneNumber</strong> </span>
                                 </a>
                             </div>
                             <div class="subphone">
@@ -108,12 +112,9 @@
                             <div class="cart-inner js-cart-inner">
                                 <i class="fas ico-cart fa-2x fa-shopping-basket" aria-hidden="true"></i>
                                 <div class="txt">
-                                    <a href="sebet">
+                                    <a asp-controller="ShoppingCart" asp-action="Index">
                                         <span>
-                                            <span id="product-length-mobile">
-                                                0
-                                            </span>
-                                            məhsul
+                                            @await Component.InvokeAsync("CartCount")
                                         </span>
                                     </a>
                                     <div class="dropdown-content">
@@ -267,20 +268,20 @@
                 <div class="row">
                     <div class="col-lg-4 mx-auto text-center">
                         <h4>Bizim ünvan</h4>
-                        <p>S.Vurğun küç. 61A</p>
+                        <p>@appdetail.Address</p>
                     </div>
                     <div class="col-lg-4 mx-auto text-center">
                         <h4>İş vaxtı</h4>
                         <ul class="list-unstyled">
-                            <li>11:00 - 23:00</li>
+                            <li>@appdetail.WorkingHours</li>
                         </ul>
                     </div>
                     <div class="col-lg-4 mx-auto text-center">
                         <h4>Bizimlə əlaqə</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a itemprop="email" href="mailto:office@bellapizza.az"
-                                   class="email">office@bellapizza.az</a>
+                                <a itemprop="email" href="mailto:@appdetail.EmailAddress"
+                                   class="email">@appdetail.EmailAddress</a>
                             </li>
                             <li>Telefonlar:</li>
                             <li class="mobPhone">
@@ -288,13 +289,13 @@
                             </li>
                             <li class="mobPhone">
                                 <a itemprop="telephone" href="tel:@{@appdetail.PhoneNumber}">
-                                    +994 <strong class="">
+                                    <strong class="">
                                         @{@appdetail.PhoneNumber}
                                     </strong>
                                 </a>
                             </li>
                             <li class="mobPhone">
-                                <a itemprop="telephone" href="tel:@{@appdetail.PhoneNumber}">@{@appdetail.PhoneNumber} </a>
+                                <a itemprop="telephone" href="tel:@{@appdetail.HomeNumber}">@{@appdetail.HomeNumber} </a>
                             </li>
                         </ul>
                     </div>
