@@ -10,25 +10,35 @@ using System.Threading.Tasks;
 
 namespace BellaPizza.Controllers
 {
-    public class CampaignController : Controller
+    public class BlogController : Controller
     {
         private readonly BellaContext _bellacontext;
-        public CampaignController(BellaContext bellacontext)
+        public BlogController(BellaContext bellacontext)
         {
             _bellacontext = bellacontext;
         }
 
+        public async Task<IActionResult> Blog()
+        {
+            BlogVM blogVM = new BlogVM()
+            {
+                Blogs = await _bellacontext.Blogs.ToListAsync()
+            };
+
+
+            return View(blogVM);
+        }
 
         public async Task<ActionResult> Detail(int? Id)
         {
             if (Id == null)
                 return NotFound();
 
-            Campaign campaign = new Campaign();
-            campaign = await _bellacontext.Campaigns.FirstOrDefaultAsync(x => x.Id == Id);
-            if (campaign == null)
+            Blog blog = new Blog();
+            blog = await _bellacontext.Blogs.FirstOrDefaultAsync(x => x.Id == Id);
+            if (blog == null)
                 return NotFound();
-            return View(campaign);
+            return View(blog);
         }
     }
 }

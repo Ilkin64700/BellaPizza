@@ -25,7 +25,10 @@
                     <div class="text-center reservation-text">
                         <h2 class="section-title">@Model.Reservation.Title</h2>
                         <p class="section-text-grey">
-                            @Model.Reservation.Description <a itemprop="telephone" href="tel:@Model.AppDetail.PhoneNumber">                                
+                            Bella Pizza-nın möhtəşəm təamlarını dadmaq üçün kafemizdə rezervasiyanı elə indi
+                            edin! Bunun üçün
+                            @Html.Raw("<span>bütün operatorlardan</span>") <a itemprop="telephone" href="tel:*1717">*1717 </a>
+                            nömrəsinə zəng edə ya da  <a itemprop="telephone" href="tel:@Model.AppDetail.PhoneNumber">
                                 <strong class=""> @Model.AppDetail.PhoneNumber</strong>
                             </a>
                             whatsapp nömrəsinə yaza bilərsiniz! Sizi səbirsizliklə gözləyirik!
@@ -57,48 +60,20 @@
 <section class="mealslider">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
-                 style="background-image: url(../images/menu-pizza.png)">
-                <div class="image-overlay-black"></div>
-                <div class="text-center main-manu-text-box">
-                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
-                    <div class="main-manu-text">
-                        <h3><a href="pizza.html">Pizza</a></h3>
+            @foreach (MealSlider mealSlider in Model.MealSliders)
+            {
+                <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
+                     style="background-image: url('/images/@mealSlider.Image')">
+                    <div class="image-overlay-black"></div>
+                    <div class="text-center main-manu-text-box">
+                        <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
+                        <div class="main-manu-text">
+                            <h3><a asp-controller="MenuProduct" asp-action="MenuProduct" asp-route-Id="@mealSlider.MenuGroupId">@mealSlider.Title</a></h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
-                 style="background-image: url(../images/menu-pasta.png)">
-                <div class="image-overlay-black"></div>
-                <div class="text-center main-manu-text-box">
-                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
-                    <div class="main-manu-text">
-                        <h3>
-                            <a href="pasta.html">Pasta</a>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
-                 style="background-image: url(../images/menu-salat.png)">
-                <div class="image-overlay-black"></div>
-                <div class="text-center main-manu-text-box">
-                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
-                    <div class="main-manu-text">
-                        <h3><a href="salatlar.html">Salatlar</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mx-auto main-manu-box"
-                 style="background-image: url(../images/menu-burger.png)">
-                <div class="image-overlay-black"></div>
-                <div class="text-center main-manu-text-box">
-                    <img src="/app/templates/main/img/icon_lines.png" alt="" width="16" class="my-4">
-                    <div class="main-manu-text">
-                        <h3><a href="burgerler.html">Burgerlər</a></h3>
-                    </div>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>
@@ -106,27 +81,17 @@
 <section class="about-page-points">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 mx-auto">
-                <div class="text-center about-section-targets">
-                    <i class="fas fa-utensils fa-3x my-3" aria-hidden="true"></i>
-                    <h2 class="section-title">Rezervasiya</h2>
-                    <p class="section-text-grey">Rezervasiya üçün *1717 bütün operatorlardan nömrəsinə zəng edə ya da @Model.AppDetail.PhoneNumber whatsapp nömrəsinə yaza bilərsiniz.</p>
+            @foreach (AboutPagePoints aboutPagePoints in Model.AboutPagePoints)
+            {
+                <div class="col-lg-3 mx-auto">
+                    <div class="text-center about-section-targets">
+                        <i class="fas fa-utensils fa-3x my-3" aria-hidden="true"></i>
+                        <h2 class="section-title">@aboutPagePoints.Title</h2>
+                        <p class="section-text-grey">@aboutPagePoints.Description</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 mx-auto">
-                <div class="text-center about-section-targets">
-                    <i class="fas fa-pizza-slice fa-3x my-3" aria-hidden="true"></i>
-                    <h2 class="section-title">Dadlı təamlar</h2>
-                    <p class="section-text-grey">Restoranımızda təqdim olunan bütün təamlar peşəkar aşpazlar tərəfindən hazırlanır.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 mx-auto">
-                <div class="text-center about-section-targets">
-                    <i class="fas fa-motorcycle fa-3x my-3" aria-hidden="true"></i>
-                    <h2 class="section-title">Sürətli çatdırılma</h2>
-                    <p class="section-text-grey">Sifarişinizin birbaşa evinizə və ya ofisinizə çatdırılmasını istəsəniz, *1717 nömrəsi ilə əlaqə saxlayın.</p>
-                </div>
-            </div>
+
+            }
         </div>
     </div>
 </section>

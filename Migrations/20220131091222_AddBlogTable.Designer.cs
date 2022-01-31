@@ -4,14 +4,16 @@ using BellaPizza.Models.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BellaPizza.Migrations
 {
     [DbContext(typeof(BellaContext))]
-    partial class BellaContextModelSnapshot : ModelSnapshot
+    [Migration("20220131091222_AddBlogTable")]
+    partial class AddBlogTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

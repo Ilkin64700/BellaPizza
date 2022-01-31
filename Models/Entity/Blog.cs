@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace BellaPizza.Models.Entity
 {
-    public class MealSlider:BaseEntity
+    public class Blog:BaseEntity
     {
         public string Image { get; set; }
         public string Title { get; set; }
-        public virtual int MenuGroupId { get; set; }
+        public string Description { get; set; }
+
     }
 }

@@ -29,6 +29,10 @@ namespace BellaPizza.Models.Context
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<MealSlider> MealSliders { get; set; }
         public virtual DbSet<AboutPagePoints> AboutPagePoints { get; set; }
+        public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<LoyalProgram> LoyalPrograms { get; set; }
+        public virtual DbSet<WhatsappOrder> WhatsappOrders { get; set; }
+        public virtual DbSet<NewPizza> NewPizzas { get; set; }
 
 
     }
