@@ -28,11 +28,19 @@ namespace BellaPizza.Controllers
             CampaignVM campaignVM = new CampaignVM
             {
                 Campaigns = await _bellaContext.Campaigns.ToListAsync(),
-                MenuItemGroups = await _bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToListAsync()
+                MenuItemGroups = await _bellaContext.MenuItemGroups.Include(x => x.MenuItems).ToListAsync(),
+                HomeSliders = await _bellaContext.HomeSliders.ToListAsync(),
+                AppDetail = await _bellaContext.AppDetails.FirstOrDefaultAsync(),
+                ContactUs= await _bellaContext.ContactUs.FirstOrDefaultAsync()
+
             };
+            
+
+
 
             return View(campaignVM);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetDetail(int? id)

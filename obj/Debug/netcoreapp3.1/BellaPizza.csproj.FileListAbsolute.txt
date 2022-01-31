@@ -452,3 +452,5 @@ C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.dll
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.pdb
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\BellaPizza.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\MenuProduct\MenuProduct.cshtml.g.cs
+C:\Users\ASUS\source\repos\BellaPizza\obj\Debug\netcoreapp3.1\Razor\Views\BirthdayMaster\BirthdayMaster.cshtml.g.cs

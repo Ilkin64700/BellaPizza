@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace BellaPizza.Models.Entity
 {
-    public class Campaign
+    public class Campaign:BaseEntity
     {
-        public int Id { get; set; }
         public string Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

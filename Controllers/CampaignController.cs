@@ -17,16 +17,6 @@ namespace BellaPizza.Controllers
         {
             _bellacontext = bellacontext;
         }
-        public async Task<ActionResult> Index()
-        {
-           CampaignVM campaignVM=new CampaignVM
-            {
-                Campaigns = await _bellacontext.Campaigns.ToListAsync()
-            };
-
-
-            return View(campaignVM);
-        }
 
         public async Task<ActionResult> Detail(int? Id)
         {
